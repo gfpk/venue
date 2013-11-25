@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Venue</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<nav>
+		<%= link_to 'ShowItems', showitems_path, :class => 'btn' %>
+		<%= link_to 'ShowTimes', showtimes_path, :class => 'btn' %>
+	</nav>
+
+
+<%= yield %>
+
+</body>
+</html>

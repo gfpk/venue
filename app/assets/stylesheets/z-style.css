@@ -1,0 +1,48 @@
+a{
+    text-decoration: none;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.clearfix {
+    display: inline-block;
+}
+html[xmlns] .clearfix {
+    display: block;
+}
+* html .clearfix {
+    height: 1%;
+}
+
+.add_fields
+{
+    
+    display: block;
+}
+
+nav
+{
+    background: #fefefe;
+    border-bottom: 1px dotted #ccc;
+}
+.btn{
+    border-radius: 3px;
+    background: #cc0000;
+    color: #fff;
+    display: inline-block;
+    padding: 3px 6px;
+    text-align: center;
+    margin: 2px 2px 2px 0;
+    trasition:all 0.2s linear;
+
+}
+.btn:hover
+{
+    
+}
+

@@ -1,0 +1,5 @@
+Date::DATE_FORMATS[:def] = "%a %e %b %Y"
+Time::DATE_FORMATS[:def] = "%l:%M%p"
+Date::DATE_FORMATS[:day] = "%e"
+Date::DATE_FORMATS[:month] = "%b"
+Date::DATE_FORMATS[:year] = "%Y"

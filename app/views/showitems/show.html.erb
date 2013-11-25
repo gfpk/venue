@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @showitem.name %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= @showitem.image %>
+</p>
+
+<p>
+  <% for i in @showitem.showtimes %>
+       <p> <%= i.date.to_s(:def)%>&nbsp<%= i.time.to_s(:def)%></p>
+  <%end%>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @showitem.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_showitem_path(@showitem) %> |
+<%= link_to 'Back', showitems_path %>

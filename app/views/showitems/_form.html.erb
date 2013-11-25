@@ -1,0 +1,40 @@
+<%= form_for(@showitem) do |f| %>
+  <% if @showitem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@showitem.errors.count, "error") %> prohibited this showitem from being saved:</h2>
+
+      <ul>
+      <% @showitem.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :featured %><br />
+    <%= f.check_box :featured %>
+  </div>
+  <div class="field">
+    <%= f.label :description%><br />
+    <%= f.text_area :description , :rows => 5 %>
+  </div>
+
+  <%= f.fields_for :showtimes do |f| %>
+  <%= render  'showtime_fields', :f=>f%>
+  <%end%>
+  <div class ="clearfix boo">
+  <%= link_to_add_fields "Add ShowTime", f, :showtimes %>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
