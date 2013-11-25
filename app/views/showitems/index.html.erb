@@ -18,7 +18,7 @@
     <td><%= showitem.image %></td>
     <td><%= showitem.featured %></td>
     <td><%= showitem.description %></td>
-    <td><%= showitem.showtimes.first.date.to_s(:def)%></td>
+    <td><%= showitem.showtimes.first.date.to_s(:def) unless showitem.showtimes.empty? %></td>
     <td><%= link_to 'Show', showitem %></td>
     <td><%= link_to 'Edit', edit_showitem_path(showitem) %></td>
     <td><%= link_to 'Destroy', showitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>

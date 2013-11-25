@@ -8,6 +8,10 @@
     <%= f.time_select :time %>
   </div>
   <div class="field-hor">
+    <%= f.label :price %>
+    <%= f.text_field :price, :class => "" %>
+  </div>
+  <div class="field-hor">
     
     <%= f.label :showtype, 'Show Type'%>
         <%= f.select :showtype, options_for_select(["Matnee", "Evening", "Preview", "Premiere"]) %>

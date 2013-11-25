@@ -1,25 +1,24 @@
 <p id="notice"><%= notice %></p>
-
+<div class="showinfo">
+	<p><i>You are booking for:</i></p>
 <p>
-  <b>Date:</b>
-  <%= @showtime.date %>
+  <h3><%= @showtime.showitem.name %></h3>  
 </p>
+  <p><i><%= @showtime.date.to_s(:def) %> &nbsp <%= @showtime.time.to_s(:def) %></i> &nbsp <%= @showtime.showtype %> &nbsp</i><%= link_to (raw('<i class="icon icon-arrow-left"></i><i>&nbsp Change date</i>')), @showtime.showitem %> </p>
+</div>
 
-<p>
-  <b>Time:</b>
-  <%= @showtime.time %>
-</p>
+<div class ="seats">
+	<table class="table striped">
+	<%for t in @showtime.tickets%>
+	<tr>
+		<td>
+			<%=t.seat%>
+		</td>
+	</tr>
 
-<p>
-  <b>Showtype:</b>
-  <%= @showtime.showtype %>
-</p>
-
-<p>
-  <b>Showitem:</b>
-  <%= @showtime.showitem.name %>
-</p>
-
+	<%end%>
+</table>
+</div>
 
 <%= link_to 'Edit', edit_showtime_path(@showtime) %> |
 <%= link_to 'Back', showtimes_path %>

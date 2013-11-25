@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  seat: MyString
+  price: 1
+  showtime: 
+
+two:
+  seat: MyString
+  price: 1
+  showtime: 

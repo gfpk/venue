@@ -12,7 +12,7 @@
 
 <p>
   <% for i in @showitem.showtimes %>
-       <p> <%= i.date.to_s(:def)%>&nbsp<%= i.time.to_s(:def)%></p>
+       <p> <%= i.date.to_s(:def)%>&nbsp<%= i.time.to_s(:def)%>&nbsp &#128 <%=i.price%> &nbsp <%= link_to 'Book', i %></p>
   <%end%>
 </p>
 

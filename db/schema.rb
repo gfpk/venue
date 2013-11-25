@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131124120212) do
+ActiveRecord::Schema.define(:version => 20131125083409) do
 
   create_table "showitems", :force => true do |t|
     t.string   "name"
@@ -29,8 +29,19 @@ ActiveRecord::Schema.define(:version => 20131124120212) do
     t.integer  "showitem_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "price"
   end
 
   add_index "showtimes", ["showitem_id"], :name => "index_showtimes_on_showitem_id"
+
+  create_table "tickets", :force => true do |t|
+    t.string   "seat"
+    t.integer  "price"
+    t.integer  "showtime_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "tickets", ["showtime_id"], :name => "index_tickets_on_showtime_id"
 
 end

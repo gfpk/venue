@@ -1,4 +1,7 @@
 Venue::Application.routes.draw do
+  resources :tickets
+
+
   resources :showtimes
 
 
