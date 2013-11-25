@@ -12,7 +12,7 @@
 	<%for t in @showtime.tickets%>
 	<tr>
 		<td>
-			<%=t.seat%>
+			<%=t.seat%><%=t.id%> &nbsp <%= button_to 'Add to Cart' , line_items_path(:ticket_id => t.id) %>
 		</td>
 	</tr>
 

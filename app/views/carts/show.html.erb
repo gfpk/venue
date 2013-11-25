@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+<%for i in @cart.line_items%>
+<%=i.ticket.seat%>
+<%end%>
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>
