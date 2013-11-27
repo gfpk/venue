@@ -17,7 +17,7 @@ class ShowtimesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @showtime }
+      format.json { render json: @showtime.tickets }
     end
   end
 

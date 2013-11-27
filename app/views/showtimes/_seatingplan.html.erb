@@ -1,0 +1,12 @@
+<%for t in @showtime.tickets%>
+	<tr>
+		<td>
+
+			<%=t.seat%> <% if t.available %><%= button_to 'Add to Cart' , line_items_path(:ticket_id => t.id), :remote => true %><%end%>
+		</td>
+		<td>
+			<%=t.available%>
+		</td>
+	</tr>
+
+	<%end%>

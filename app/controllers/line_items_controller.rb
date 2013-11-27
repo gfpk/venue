@@ -77,10 +77,12 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
+    @tickets = @line_item.ticket.showtime.tickets
 
     respond_to do |format|
       format.html {redirect_to(@line_item.ticket.showtime, :notice => 'Line item was successfully destroyed')}
       format.html { redirect_to line_items_url }
+      format.js 
       format.json { head :no_content }
     end
   end

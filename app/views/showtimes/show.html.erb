@@ -8,20 +8,10 @@
 </div>
 
 <div class ="seats">
-	<table class="table striped">
-	<%for t in @showtime.tickets%>
-	<tr>
-		<td>
-
-			<%=t.seat%> <% if t.available == true %><%= button_to 'Add to Cart' , line_items_path(:ticket_id => t.id) %><%end%>
-		</td>
-		<td>
-			<%=t.available%>
-		</td>
-	</tr>
-
-	<%end%>
-</table>
+	<table class="table striped" id="seatingplan">
+		<%= render "seatingplan"%>
+	
+    </table>
 </div>
 
 <%= link_to 'Edit', edit_showtime_path(@showtime) %> |

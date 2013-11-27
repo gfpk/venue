@@ -29,11 +29,11 @@
   </div>
 
   <%= f.fields_for :showtimes do |f| %>
-  <%= render  'showtime_fields', :f=>f%>
+    <%= render  'showtime_fields', :f=>f%>
   <%end%>
   <div class ="clearfix boo">
-  <%= link_to_add_fields "Add ShowTime", f, :showtimes %>
-</div>
+    <%= link_to_add_fields "Add ShowTime", f, :showtimes%>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

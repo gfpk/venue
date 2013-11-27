@@ -8,6 +8,6 @@
 		<td><%= line_item.ticket.showtime.showitem.name%></td>
 		<td><i><%= line_item.ticket.showtime.date.to_s(:def)%>@<%= line_item.ticket.showtime.time.to_s(:def)%></i></td>
 		<td><%= number_to_currency(line_item.ticket.price, :unit => '&euro;')%></td>
-		<td><%= link_to 'x', line_item, :class => "btn",:title => "remove ticket from cart" , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to 'x', line_item, :class => "btn",:title => "remove ticket from cart" , method: :delete, :remote => true%></td>
 	</tr>
 	

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :get_cart #, :except => :cart
+  before_filter :get_cart , :except => :cart
 
   private
 	def current_cart
