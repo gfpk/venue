@@ -1,0 +1,21 @@
+
+<% unless cart.line_items.empty? %>
+<h4><i class="icon icon-shopping-cart"></i> Your Selected Tickets</h4>
+<table class="table table-condensed ">
+	<%= render :partial => "line_items/line_item", :collection => cart.line_items %>
+	 
+	<tr class="lastrow">
+		<td colspan="3"><%= button_to 'Empty cart', @cart, :method => :delete,
+:confirm => 'Are you sure?', :class=>'btn btn-danger' %></td>
+
+<td style="text-align:right"><strong>Total:</strong></td>
+<td style="text-align:left"><strong class="text-info"><%= number_to_currency(@cart.total_price, :unit => '&euro;') %></strong></td>
+<td></td>
+	</tr>
+</table>
+<%#= button_to "Checkout", new_order_path, :method => :get, :class=>'btn btn-block btn-large' %>
+
+
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>
+<%end%>

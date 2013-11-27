@@ -11,10 +11,13 @@
 <body>
 	<nav>
 		<div class="container">
-			<%= link_to 'ShowItems', showitems_path, :class => 'btn' %>
-			<%= link_to 'ShowTimes', showtimes_path, :class => 'btn' %>
-			<%= link_to 'Tickets', tickets_path, :class => 'btn' %>
-			<%= link_to 'Carts', carts_path, :class => 'btn' %>
+			<div class="pull-right">
+				<%= link_to 'ShowItems', showitems_path, :class => 'btn' %>
+				<%= link_to 'ShowTimes', showtimes_path, :class => 'btn' %>
+				<%= link_to 'Tickets', tickets_path, :class => 'btn' %>
+				<%= link_to 'Carts', carts_path, :class => 'btn' %>
+				<%= link_to 'Line Items', line_items_path, :class => 'btn' %>
+			</div>
 		</div>
 	</nav>
 <div class="container">
@@ -26,6 +29,13 @@
 
 		<div class="col-md-4">
 			Holder
+		<div id="cart">
+	      <% if @cart%>
+	          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+	              <%= render :partial => 'carts/cart', :object => @cart %>
+	          <% end %>
+	      <% end %>
+    	</div>
 		</div>
 
 		</div>
