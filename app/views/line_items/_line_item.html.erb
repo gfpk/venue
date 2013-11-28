@@ -1,8 +1,8 @@
-<% if line_item == @current_item %>
+<% if line_item == @line_item %>
   <tr id="current_item">
-  <% else %>
+<% else %>
   <tr>
-  <% end %>
+<% end %>
   <td></td>
 		<td><strong><%= line_item.ticket.seat%></strong></td>
 		<td><%= line_item.ticket.showtime.showitem.name%></td>
@@ -10,4 +10,4 @@
 		<td><%= number_to_currency(line_item.ticket.price, :unit => '&euro;')%></td>
 		<td><%= link_to 'x', line_item, :class => "btn",:title => "remove ticket from cart" , method: :delete, :remote => true%></td>
 	</tr>
-	<tr><td><b><%= line_item%></b></td><td><i><%= @current_item%></i></td></tr>
+	
