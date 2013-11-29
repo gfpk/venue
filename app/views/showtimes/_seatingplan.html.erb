@@ -1,21 +1,15 @@
 <%for t in @showtime.tickets%>
+<%if @current_seat && @current_seat.id == t.id %>
 
-
-  <tr >
-
+<tr id="current_item">
+<% else %>
 	<tr >
-		
+<%end%>		
 		<td>
 
 			<%=t.seat%> 
 		</td>
-		<td>
-
-			
-		</td>
-		<td>
-			
-		</td>
+		
 		<td>
 
 			<%=t.price%> 

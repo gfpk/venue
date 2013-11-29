@@ -52,6 +52,7 @@ class LineItemsController < ApplicationController
         format.json { render json: @line_item, status: :created, location: @line_item }
       else
         format.html { render action: "new" }
+        #format.js {render 'fail', :locals => {:error => @line_item.errors}}
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
@@ -85,7 +86,7 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       format.html {redirect_to(@line_item.ticket.showtime, :notice => 'Line item was successfully destroyed')}
       format.html {redirect_to line_items_url }
-      format.js {@current_seat=@current_seat, @showtime = @line_item.ticket.showtime}
+      format.js {current_seat=@current_seat, @showtime = @line_item.ticket.showtime}
       format.json { head :no_content }
     end
   end
