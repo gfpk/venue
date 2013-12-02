@@ -1,6 +1,6 @@
 <h1>Listing showitems</h1>
 
-<table>
+<table class="table table-stripped">
   <tr>
     <th>Name</th>
     <th>Image</th>
@@ -8,6 +8,7 @@
     <th>Description</th>
     <th>Starts</th>
     <th>Delatable?</th>
+    <th>tickets</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,6 +22,10 @@
     <td><%= showitem.description %></td>
     <td><%= showitem.showtimes.first.date.to_s(:def) unless showitem.showtimes.empty? %></td>
     <td><%=showitem.deletable_bis%></td>
+    <td><%for t in showitem.tickets%>
+        <p><%=t.available%></p>
+        <%end%>
+    </td>
     <td><%= link_to 'Show', showitem %></td>
     <td><%= link_to 'Edit', edit_showitem_path(showitem) %></td>
     <td><%= link_to 'Destroy', showitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
