@@ -1,3 +1,4 @@
+<tbody>
 <%for t in @showtime.tickets%>
 <%if @current_seat && @current_seat.id == t.id %>
 
@@ -21,3 +22,4 @@
 	</tr>
 
 	<%end%>
+</tbody>
