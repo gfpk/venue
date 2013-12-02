@@ -7,6 +7,7 @@
     <th>Featured</th>
     <th>Description</th>
     <th>Starts</th>
+    <th>deletable?</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,6 +20,7 @@
     <td><%= showitem.featured %></td>
     <td><%= showitem.description %></td>
     <td><%= showitem.showtimes.first.date.to_s(:def) unless showitem.showtimes.empty? %></td>
+    <td><%=showitem.ensure_not_have_showtime%></td>
     <td><%= link_to 'Show', showitem %></td>
     <td><%= link_to 'Edit', edit_showitem_path(showitem) %></td>
     <td><%= link_to 'Destroy', showitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>

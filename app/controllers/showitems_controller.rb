@@ -72,12 +72,15 @@ class ShowitemsController < ApplicationController
   # DELETE /showitems/1
   # DELETE /showitems/1.json
   def destroy
-    @showitem = Showitem.find(params[:id])
-    @showitem.destroy
-
-    respond_to do |format|
-      format.html { redirect_to showitems_url }
-      format.json { head :no_content }
+   @showitem = Showitem.find(params[:id])
+   respond_to do |format|
+    if @showitem.destroy
+            format.html { redirect_to showitems_url, notice: 'ShowItem was successfully destroyed.' }
+            format.json { head :no_content }
+          else
+            format.html { redirect_to showitems_url, alert: "Don't kill me yet, I have tickets in cart " }
+            format.json { render json: @showtime.errors, status: :unprocessable_entity }
+          end    
+      end
     end
-  end
 end
