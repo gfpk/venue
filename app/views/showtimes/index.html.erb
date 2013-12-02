@@ -7,6 +7,7 @@
     <th>Showtype</th>
     <th>Showitem</th>
     <th>Price</th>
+    <th>Del?</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,6 +20,7 @@
     <td><%= showtime.showtype %></td>
     <td><%= showtime.showitem.name %></td>
     <td><%= showtime.price %></td>
+    <td><%= showtime.deletable_bis %></td>
     <td><%= link_to 'Show', showtime %></td>
     <td><%= link_to 'Edit', edit_showtime_path(showtime) %></td>
     <td><%= link_to 'Destroy', showtime, method: :delete, data: { confirm: 'Are you sure?' } %></td>

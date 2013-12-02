@@ -6,23 +6,25 @@ class Showitem < ActiveRecord::Base
   
   accepts_nested_attributes_for :showtimes, allow_destroy: true
 
-  before_destroy :ensure_not_have_showtime
+  before_destroy :delatable
 
   mount_uploader :image, ImageUploader
 
-  
+  def deletable_bis
+  	delatable
+  end
 	
+private
+	def delatable
 
-	def ensure_not_have_showtime
 		for t in self.tickets
 			if t.available
 				return true
-			elsif self.showtimes.empty?
-				return true
-			else
-				return false
+			end
+			return false
 		end
+
+		
 	end
-end
 
 end
