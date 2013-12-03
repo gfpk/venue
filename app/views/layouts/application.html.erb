@@ -11,6 +11,10 @@
 <body>
 	<nav>
 		<div class="container">
+			<%= link_to  root_path, id: "logo" do %>
+  				<img src="/tor-logo.png"%>
+  
+			<% end %>
 			<div class="pull-right">
 				<%= link_to 'ShowItems', showitems_path, :class => 'btn' %>
 				<%= link_to 'ShowTimes', showtimes_path, :class => 'btn' %>

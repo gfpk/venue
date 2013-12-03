@@ -13,6 +13,9 @@ class Showitem < ActiveRecord::Base
   def deletable_bis
   	delatable
   end
+  def soldout
+  	self.tickets.all? {|t| t.available != false}
+  end
 	
 private
 	def delatable

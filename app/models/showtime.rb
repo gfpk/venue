@@ -17,6 +17,11 @@ class Showtime < ActiveRecord::Base
  def deletable_bis
     delatable
   end
+  def soldout
+    if self.tickets.all? {|t| t.available == false}
+      return true
+    end
+  end
 
 private
   def delatable

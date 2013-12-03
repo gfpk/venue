@@ -35,7 +35,7 @@ nav
     background: #cc0000;
     color: #fff;
     display: inline-block;
-    padding: 3px 6px;
+    
     text-align: center;
     margin: 2px 2px 2px 0;
     trasition:all 0.2s linear;
@@ -66,4 +66,13 @@ nav
 }
 img {
     max-width: 100%;
+}
+
+html body tr.soldout td 
+{
+    background: url('/soldout-bg.png')!important;
+}
+.btn:hover, .btn:focus {
+    color: #ffffff;
+    text-decoration: none;
 }
