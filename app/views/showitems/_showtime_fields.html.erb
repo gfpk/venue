@@ -16,9 +16,15 @@
     <%= f.label :showtype, 'Show Type'%>
         <%= f.select :showtype, options_for_select(["Matnee", "Evening", "Preview", "Premiere"]) %>
   </div>
+  <%if f.object.deletable_bis%>
+   <div class="field-hor">
+    <%= f.check_box :_destroy, class: "remove_showtime"%>
+    <%= f.label :_destroy, "Remove Showtime" %>
+  </div>
+    <%end%>
+    <%#= f.object.deletable_bis%>
 
-  <%= f.check_box :_destroy, class: "remove_showtime"%>
-  <%= f.label :_destroy, "Remove Showtime" %>
+  
   
   
 </div>

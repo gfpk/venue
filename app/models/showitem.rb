@@ -16,14 +16,9 @@ class Showitem < ActiveRecord::Base
 	
 private
 	def delatable
-
-		for t in self.tickets
-			if t.available 
-				return true
-			end
-			return false
-		end	
+	   self.tickets.all? {|t| t.available}
 	end
+
 	def del_showtimes
 
 		for tim in self.showtimes

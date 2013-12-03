@@ -76,8 +76,14 @@ class ShowtimesController < ApplicationController
     @showtime.destroy
 
     respond_to do |format|
-      format.html { redirect_to showtimes_url }
-      format.json { head :no_content }
+      if @showtime.destroy
+            format.html { redirect_to showtimes_url, notice: 'showtime was successfully destroyed.' }
+            format.json { head :no_content }
+          else
+            format.html { redirect_to showtimes_url, alert: "Don't kill me yet, I have tickets in cart " }
+            format.json { render json: @showtime.errors, status: :unprocessable_entity }
+          end    
+      end
     end
-  end
+  
 end
