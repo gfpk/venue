@@ -15,7 +15,7 @@
 <% @showitems.each do |showitem| %>
   <tr>
     <td><%= showitem.name %></td>
-    <td><%= showitem.image %></td>
+    <td><%= image_tag showitem.image_url(:thumb) %></td>
     <td><%= showitem.featured %></td>
     <td><%= showitem.description %></td>
     <td><%= showitem.showtimes.first.date.to_s(:def) unless showitem.showtimes.empty? %></td>
