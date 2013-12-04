@@ -1,6 +1,9 @@
 class LineItemsController < ApplicationController
   # GET /line_items
   # GET /line_items.json
+
+  
+
   def index
     @line_items = LineItem.all
 

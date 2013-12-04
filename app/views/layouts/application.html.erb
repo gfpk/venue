@@ -15,7 +15,10 @@
   				<img src="/tor-logo.png"%>
   
 			<% end %>
-			<div class="pull-right">
+			<div id="user_nav" class="pull-right">
+				<%= render 'layouts/usernav'%>
+			</div>
+			<div class="pull-right" id="main-nav">
 				<%= link_to 'ShowItems', showitems_path, :class => 'btn' %>
 				<%= link_to 'ShowTimes', showtimes_path, :class => 'btn' %>
 				<%= link_to 'Tickets', tickets_path, :class => 'btn' %>
@@ -43,6 +46,7 @@
 		</div>
 
 		<div class="col-md-4">
+
 			
 		<div id="cart">
 	      <% if @cart%>

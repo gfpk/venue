@@ -1,6 +1,9 @@
 class ShowitemsController < ApplicationController
   # GET /showitems
   # GET /showitems.json
+
+  before_filter :authenticate_user!, except: [:index, :show]
+
   def index
     @showitems = Showitem.all
 
