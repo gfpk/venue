@@ -1,5 +1,5 @@
 
-<% unless cart.line_items.empty? %>
+<% unless cart.line_items.empty? %> 
 <h4><i class="icon icon-shopping-cart"></i> Your Selected Tickets</h4>
 <table class="table table-condensed ">
 	<%= render :partial => "line_items/line_item", :collection => cart.line_items %>

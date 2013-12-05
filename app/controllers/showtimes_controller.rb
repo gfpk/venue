@@ -1,6 +1,6 @@
 class ShowtimesController < ApplicationController
   # GET /showtimes
-  # GET /showtimes.json
+  # GET /showtimes.json..
 
   before_filter :authenticate_user!, except: [:index, :show]
   
