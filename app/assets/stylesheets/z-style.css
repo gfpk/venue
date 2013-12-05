@@ -1,3 +1,5 @@
+body { padding-top: 30px; }
+
 a{
     text-decoration: none;
 }
@@ -80,5 +82,21 @@ body .btn:hover, body .btn:focus {
 }
 #user_nav
 {
-    margin-bottom: 7px;
+  
+}
+#adminbar 
+{
+    min-height: 2px;
+
+}
+
+#adminbar .navbar-nav > li > a {
+
+    padding: 3px;
+    margin:3px;
+
+}
+#adminbar .navbar-text
+{
+    margin: 6px;
 }

@@ -1,10 +1,10 @@
-<span class="label label-default">
-   nn <% if user_signed_in? %>
-      <%= current_user.email %>
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<ul class="nav navbar-nav navbar-right">
+    <% if user_signed_in? %>
+      <li class="navbar-text"><%= current_user.email %></li>
+      <li><%= link_to 'Edit profile', edit_user_registration_path %> </li>
+      <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
     <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
+     <li> <%= link_to "Sign up", new_user_registration_path %> </li>
+     <li> <%= link_to "Login", new_user_session_path %></li>
     <% end %>
-  </span>
+  </ul>

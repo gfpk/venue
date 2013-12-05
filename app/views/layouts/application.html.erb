@@ -9,21 +9,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<nav>
+	<nav class="navbar navbar-inverse navbar-fixed-top" id="adminbar">
+		<div class="container">
+			<div id="user_nav" class="pull-right">
+				<%= render 'layouts/usernav'%>..
+			</div>
+		</div>
+	</nav>
+
+	<nav class="navbar navbar-static-top navbar-default">
 		<div class="container">
 			<%= link_to  root_path, id: "logo" do %>
   				<img src="/tor-logo.png"%>
   
 			<% end %>
-			<div id="user_nav" class="pull-right">
-				<%= render 'layouts/usernav'%>..
-			</div>
+			
 			<div class="pull-right" id="main-nav">
-				<%= link_to 'ShowItems', showitems_path, :class => 'btn' %>
-				<%= link_to 'ShowTimes', showtimes_path, :class => 'btn' %>
-				<%= link_to 'Tickets', tickets_path, :class => 'btn' %>
-				<%= link_to 'Carts', carts_path, :class => 'btn' %>
-				<%= link_to 'Line Items', line_items_path, :class => 'btn' %>
+			<ul class="nav navbar-nav navbar-right">
+				<li><%= link_to 'ShowItems', showitems_path %></li>
+				<li><%= link_to 'ShowTimes', showtimes_path %></li>
+				<li><%= link_to 'ShowTimes', showtimes_path %></li>
+				<li><%= link_to 'Tickets', tickets_path %></li>
+				<li><%= link_to 'Carts', carts_path %></li>
+				<li><%= link_to 'Line Items', line_items_path %></li>
+			</ul>
 			</div>
 		</div>
 	</nav>
@@ -46,6 +55,12 @@
 		</div>
 
 		<div class="col-md-4">
+			<%if user_is_admin%>
+				<p>Admin</p>
+			<%end%>
+			<%if current_user && !user_is_admin%>
+				<p>Nobody</p>
+			<%end%>
 
 			
 		<div id="cart">

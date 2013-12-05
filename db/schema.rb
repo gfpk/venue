@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131204122316) do
+ActiveRecord::Schema.define(:version => 20131205073051) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20131204122316) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "username"
+    t.integer  "role",                   :default => 2
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

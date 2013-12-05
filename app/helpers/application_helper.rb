@@ -39,3 +39,8 @@ def flash_display
   flash.discard
   response
 end
+def user_is_admin
+   
+    current_user && current_user.role ==1 ? true :false
+    
+  end

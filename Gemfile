@@ -25,6 +25,7 @@ gem 'rmagick'
 gem 'carrierwave'
 gem 'devise'
 gem 'better_errors'
+gem 'cancan'
 
 
 # To use ActiveModel has_secure_password
