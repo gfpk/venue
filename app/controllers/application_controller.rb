@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :get_cart , :except => :cart
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to main_app.root_url, :alert => exception.message
+  end
 
   private
 	def current_cart

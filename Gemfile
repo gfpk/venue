@@ -26,6 +26,8 @@ gem 'carrierwave'
 gem 'devise'
 gem 'better_errors'
 gem 'cancan'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 
 # To use ActiveModel has_secure_password
