@@ -1,0 +1,10 @@
+<td colspan="3" class="metercell">
+	<div class="meterwrap">
+<div class="meter-booked tool-trig" style="width:<%=book_bar(i)%>%" data-toggle="tooltip" title="<%=book_bar(i)%>%(<%=i.line_items.count%>) booked">
+</div>
+<div class="meter-all tool-trig" style="width:<%=100 - book_bar(i)%>%" data-toggle="tooltip" title="<%=100 - book_bar(i)%>% (<%=i.tickets.count-i.line_items.count%>) available ">	
+	
+</div>
+
+</div>
+</td>

@@ -1,4 +1,4 @@
-body { padding-top: 30px; }
+body { padding-top: 35px; }
 
 a{
     text-decoration: none;
@@ -99,4 +99,25 @@ body .btn:hover, body .btn:focus {
 #adminbar .navbar-text
 {
     margin: 6px;
+}
+footer
+{
+    margin-top: 20px;
+    background: none repeat scroll 0 0 #F4F5F7;
+    border-color: #E5EAEE ;
+    border-style: solid none;
+    border-width: 1px 0;
+    color: #7B8084;
+}
+.meter-all
+{
+    background: #bbb;
+    height: 7px; float:left;
+}
+.meter-booked
+{height: 7px;
+background: #336699;
+float: left;}
+html body table td.metercell {
+    padding: 0;
 }

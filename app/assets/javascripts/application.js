@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require_tree .
 $('.seat').popover({html:true});
+$('.tool-trig').tooltip();
+

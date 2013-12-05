@@ -30,6 +30,7 @@
         <td> &#128 <%=i.price%></td>
         <td><%= link_to 'Book', i, :class=>'btn btn-block' %></td>
        </tr>
+       <tr><%=render 'meter', :i =>i%></tr>
       
     <%end%>
   <%end%>
