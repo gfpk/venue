@@ -1,9 +1,10 @@
 Venue::Application.routes.draw do
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
   
   resources :orders
 
 
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+  #devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
   devise_for :users
 
@@ -20,6 +21,7 @@ Venue::Application.routes.draw do
 
 
   resources :showitems
+  
 
 
   # The priority is based upon order of creation:
