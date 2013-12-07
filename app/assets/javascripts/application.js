@@ -15,4 +15,6 @@
 //= require_tree .
 $('.seat').popover({html:true});
 $('.tool-trig').tooltip();
+//$(".alert").alert();
 
+  $(".alert").addClass("in");
