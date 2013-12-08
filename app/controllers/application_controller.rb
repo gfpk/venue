@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
     redirect_to main_app.root_url, :alert => exception.message
   end
 
+  
+
+
   private
 	def current_cart
 		Cart.find(session[:cart_id])

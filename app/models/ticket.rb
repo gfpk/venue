@@ -10,6 +10,9 @@ class Ticket < ActiveRecord::Base
   def available
     self.line_items.empty?
   end
+  def in_cart(cart)
+  		cart.line_items.include? self.line_items.first
+  end
 	
 	private
 		

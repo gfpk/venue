@@ -1,0 +1,29 @@
+<div id="seatingplan" style="">
+<div id="stage"><img alt="stage" src="/stage.png"></div>
+
+    <ul class ="clearfix" id="A">
+        <li class="buffer">A</li>
+        <% for t in @showtime.tickets[0,22] %>
+        	<%=render 'seat', :t=>t%>    
+        <%end%>
+        <li class="buffer">A</li>
+    </ul>
+
+	<ul class ="clearfix" id="A">
+        <li class="buffer">A</li>
+        <% for t in @showtime.tickets[22,23] %>
+        	<%=render 'seat', :t=>t%>    
+        <%end%>
+        <li class="buffer">A</li>
+    </ul>
+    
+  
+ 
+    
+    
+
+
+
+
+<br class="clear">
+</div>

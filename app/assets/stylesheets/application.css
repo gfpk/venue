@@ -49,7 +49,7 @@
 #seatingplan li a:hover {
     background: none repeat scroll 0 0 #BBBBBB;
 }
-#seatingplan li a.na {
+#seatingplan li a[data-avail=false] {
     background-color: #EEEEEE;
     background-image: url("/na.png");
     background-position: 50% 50%;

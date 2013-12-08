@@ -8,11 +8,25 @@ class Showtime < ActiveRecord::Base
   before_destroy :delatable, :del_tickets
 
   def add_tickets
-    seats=['a1','a2','a3','a4','a5','a6','a7','a8']
-	seats.each do |ticket|
-    	tickets.create(:seat => "#{ticket}", :price => price)
-  	end
-  end
+    seats = ("A".."S").to_a
+
+    seats.each_slice(2) {|row| 
+
+      (1..22).each do |n|
+        unless row[0].nil? 
+            tickets.create(:seat => n.to_s + row[0], :price => price)
+          end
+      end
+
+    (1..23).each do |i|
+       unless row[1].nil? 
+        tickets.create(:seat => i.to_s + row[1], :price => price)
+       end
+    end
+   }
+
+
+    end
 
  def deletable_bis
     delatable

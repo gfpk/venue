@@ -3,9 +3,10 @@ class LineItem < ActiveRecord::Base
   belongs_to :ticket
   belongs_to :cart
   belongs_to :order
-  # attr_accessible :title, :body
   before_create :ensure_unique
-	#...
+
+  
+
 	private
 		def ensure_unique
 			if self.ticket.line_items.count.zero?
