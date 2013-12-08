@@ -7,13 +7,13 @@
 </p>
   <p><i><%= @showtime.date.to_s(:def) %> &nbsp <%= @showtime.time.to_s(:def) %></i> &nbsp <%= @showtime.showtype %> &nbsp</i><%= link_to (raw('<i class="icon icon-arrow-left"></i><i>&nbsp Change date</i>')), @showtime.showitem %> </p>
 </div>
-<%= render 'seating_layout'%>
+
 <div class ="seats">
-	<table class="table striped" id="seatingplan" showtime-id='<%= @showtime.id%>'>
+	<div class="table striped" id="seatingplan" showtime-id='<%= @showtime.id%>'>
 		
-			<%= render "seatingplan"%>
+			<%= render 'seating_layout'%>
 		
-    </table>
+    </div>
 </div>
 
 <%= link_to 'Edit', edit_showtime_path(@showtime) %> |

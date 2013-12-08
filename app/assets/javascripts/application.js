@@ -18,3 +18,7 @@ $('.tool-trig').tooltip();
 //$(".alert").alert();
 
   $(".alert").addClass("in");
+ $(document.body).on('hidden.bs.modal', function () {
+    $('#myModal').removeData('bs.modal')
+});
+

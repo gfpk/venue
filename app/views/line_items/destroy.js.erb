@@ -1,6 +1,6 @@
 $('#cart').html("<%=j render @cart %>");
 var crviewId = $('#seatingplan').attr('showtime-id');
 if (<%=@showtime.id%> == crviewId ){
-$('#seatingplan').html("<%=j render partial: 'showtimes/seatingplan', locals: { showtime: @showtime }%>");
+$('#seatingplan').html("<%=j render partial: 'showtimes/seating_layout', locals: { showtime: @showtime }%>");
  
-$('tr#current_item ').fadeTo(100, .1).delay(100).fadeTo(500, 1);}
+$('li#current_item ').fadeTo(100, .1).delay(100).fadeTo(500, 1).fadeTo(100, .1).delay(100).fadeTo(500, 1);}

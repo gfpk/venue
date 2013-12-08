@@ -8,7 +8,7 @@ class Showtime < ActiveRecord::Base
   before_destroy :delatable, :del_tickets
 
   def add_tickets
-    seats = ("A".."S").to_a
+    seats = ("A".."S").to_a - ["I", "O"]
 
     seats.each_slice(2) {|row| 
 

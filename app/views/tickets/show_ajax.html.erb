@@ -1,0 +1,34 @@
+
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          <b>Seat:</b>
+          <%= @ticket.seat %>
+        </p>
+
+        <p>
+          <b>Price:</b>
+          <%= @ticket.price %>
+        </p>
+
+        <p>
+          <b>Showtime:</b>
+          <%= @ticket.showtime %>
+        </p>
+
+
+        <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+        <%= link_to 'Back', tickets_path %>
+
+      </div>
+      <div class="modal-footer">
+ 
+       <% if @ticket.available %><%= button_to 'Add to Cart' , line_items_path(:ticket_id => @ticket.id), :remote => true, :class=>"btn btn-block" %><%end%>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->

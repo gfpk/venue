@@ -19,9 +19,10 @@
     text-align: center;
 }
 #seatingplan ul {
-    height: 9px;
-    padding: 5px;
+    height: 5px;
+    padding: 1px;
 }
+
 #seatingplan li {
     display: block;
     float: left;
@@ -32,25 +33,34 @@
     color: #990000;
     font-size: 12px;
     font-weight: bold;
-    line-height: 23px;
+    line-height: 15px;
     width: 10px;
 }
 #seatingplan li a {
     background-color: #EEEEEE;
     border: 1px solid #BBBBBB;
-    border-radius: 2px;
+    border-radius: 2px 2px 2px 2px;
     display: block;
-    line-height: 19px;
+    font-size: 9px;
+    
+    line-height: 15px;
     text-align: center;
     transition: all 0.1s ease-out 0s;
-    width: 22px;
-    font-size: 12px;
+    width: 24px;
+    color:#777;
 }
+
 #seatingplan li a:hover {
     background: none repeat scroll 0 0 #BBBBBB;
 }
 #seatingplan li a[data-avail=false] {
-    background-color: #EEEEEE;
+    background-color: #900;
+    background-image: url("/na.png");
+    background-position: 50% 50%;
+    cursor: not-allowed;
+}
+#seatingplan li a[data-incart=true] {
+    background-color: #090;
     background-image: url("/na.png");
     background-position: 50% 50%;
     cursor: not-allowed;

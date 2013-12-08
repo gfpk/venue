@@ -19,7 +19,12 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      if request.xhr?
+        format.html { render 'show_ajax.html.erb', :layout => false }
+      else
+        format.html 
+      end
+      
       format.json { render json: @ticket }
     end
   end

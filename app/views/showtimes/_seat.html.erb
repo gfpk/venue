@@ -4,9 +4,10 @@
 <% else %>
 	<li >
 <%end%>		
-<a href="#" data-avail="<%=t.available%>" data-incart="<%=t.in_cart(@cart)%>">
+<%= link_to t.seat, t, :"data-avail"=> t.available, :"data-incart"=> t.in_cart(@cart), :"data-toggle"=>"modal", :"data-target"=>"#myModal" %>
 
-	<%= t.seat %></a>
+
+	</a>
 <%#=@cart.line_items%>
 
 </li>
