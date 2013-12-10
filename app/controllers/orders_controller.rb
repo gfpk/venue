@@ -52,15 +52,19 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(params[:order])
     @order.user_id = current_user.id
+
     @order.add_line_items_from_cart(current_cart)
+
 
 
     respond_to do |format|
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+        Notifier.ticket_purchased(@order).deliver
         format.html { redirect_to(showitems_url, :notice => 'Thank you for your order.' ) }
         format.xml { render :xml => @order, :status => :created,:location => @order }
+
       else
         format.html { render action: "new" }
         format.json { render json: @order.errors, status: :unprocessable_entity }

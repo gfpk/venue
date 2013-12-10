@@ -2,7 +2,7 @@ class Ticket < ActiveRecord::Base
   belongs_to :showtime
   attr_accessible :price, :seat
   has_many :line_items
-  #has_many :orders,:through => :line_items
+  has_many :orders,:through => :line_items
   attr_accessible :price, :seat, :avaliable
 
   before_destroy :ensure_not_referenced_by_any_line_item
