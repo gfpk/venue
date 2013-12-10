@@ -3,32 +3,22 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel"><%= @ticket.showtime.showitem.name%></h4>
+        <h5 class="modal-title"><%=@ticket.showtime.date.to_s(:def)%><%=@ticket.showtime.time.to_s(:def)%></h5>
       </div>
       <div class="modal-body">
-        <p>
-          <b>Seat:</b>
-          <%= @ticket.seat %>
-        </p>
-
-        <p>
-          <b>Price:</b>
-          <%= @ticket.price %>
-        </p>
-
-        <p>
-          <b>Showtime:</b>
-          <%= @ticket.showtime %>
-        </p>
-
-
-        <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-        <%= link_to 'Back', tickets_path %>
+       
+          <h2>Seat: <%= @ticket.seat %></h2>
+      
+          <h4>Price: <%= @ticket.price %></h4>
+          <p>Stag eview from selected seat:</p>
+          <img src="/seatviews/<%= @ticket.seat %>.jpg" />
 
       </div>
       <div class="modal-footer">
  
-       <% if @ticket.available %><%= button_to 'Add to Cart' , line_items_path(:ticket_id => @ticket.id), :remote => true, :class=>"btn btn-block" %><%end%>
+       <% if @ticket.available %><%= button_to 'Add this ticket to' , line_items_path(:ticket_id => @ticket.id), :remote => true, :class=>"btn btn-block" %><%elsif @ticket.available == false && @ticket.in_cart(@cart)%><button type="button" class="btn btn-block btn-primary" disabled="disabled">Ticket already in cart :)</button><%else%>
+       <h3>Ticket <b><i>not</i></b> available</h3><%end%>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

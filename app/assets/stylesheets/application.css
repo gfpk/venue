@@ -53,22 +53,26 @@
 #seatingplan li a:hover {
     background: none repeat scroll 0 0 #BBBBBB;
 }
-#seatingplan li a[data-avail=false] {
-    background-color: #900;
+
+#seatingplan li a[data-avail="false"] {
+    background-color: #777777;
     background-image: url("/na.png");
     background-position: 50% 50%;
-    cursor: not-allowed;
+    color: #FFFFFF;
+    opacity: 0.8;
 }
-#seatingplan li a[data-incart=true] {
-    background-color: #090;
-    background-image: url("/na.png");
+
+#seatingplan li a[data-incart=true] {  
+    background-color: #369;
+    background-image: none;
     background-position: 50% 50%;
-    cursor: not-allowed;
+    border-color:#0B4470;
+    color:#fff;
 }
 #seatingplan li a.na:hover {
     background-image: url("/na.png");
     background-position: 50% 50%;
-    cursor: not-allowed;
+
 }
 #seatingplan li a.selected {
     background: none repeat scroll 0 0 #336699;
