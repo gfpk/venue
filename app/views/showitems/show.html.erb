@@ -1,11 +1,23 @@
-<h1>
+<hgroup class="showheader">
+
+<div class="show-name-wrapper">
+  <h3  class="show-name">
  
   <%= @showitem.name %>
-</h1>
+</h3>
+</div>
 
-<p>
   <%= image_tag @showitem.image_url(:big) %>
-</p>
+<div class="caption">
+                  <div class="caption-inner">
+                   
+                    <div class="date ">
+                      <p> <span class="day"><%= @showitem.showtimes.first.date.to_s(:day)%> </span><span class="month"><%= @showitem.showtimes.first.date.to_s(:month)%></span> <span class="year"><%= @showitem.showtimes.first.date.to_s(:year)%></span></p>
+                    </div>
+                    
+                    </div>
+                  </div>
+</hgroup>
 
 <table class="table table-striped table-hover">
   <thead>

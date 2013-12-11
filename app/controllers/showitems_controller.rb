@@ -6,6 +6,7 @@ before_filter :authenticate_user!, except: [:index, :show]
   
   def index
     @showitems = Showitem.all
+    @homepage = true
 
     respond_to do |format|
       format.html # index.html.erb

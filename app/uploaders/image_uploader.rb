@@ -38,10 +38,10 @@ class ImageUploader < CarrierWave::Uploader::Base
      process :resize_to_fill=> [180, 180, gravity=::Magick::CenterGravity]
    end
    version :big do
-     process :resize_to_fill=> [750, 350, gravity=::Magick::CenterGravity]
+     process :resize_to_fill=> [750, 310, gravity=::Magick::CenterGravity]
    end
     version :slide do
-     process :resize_to_fill=> [900, 450, gravity=::Magick::CenterGravity]
+     process :resize_to_fill=> [900, 375, gravity=::Magick::CenterGravity]
    end
 
   # Create different versions of your uploaded files:

@@ -1,0 +1,32 @@
+<div class="flexslider">
+            <ul class="slides">
+              <%@slidelist = Showitem.where(featured: true)%>
+<% @slidelist.each do |showitem| %>
+
+              <li class="slide">
+                <%=image_tag showitem.image_url(:slide)%>
+                <div class="slide-tit">
+                <h3 class="show-name"> <%=showitem.name%></h3>
+                <%= link_to 'BOOK NOW', showitem_path(showitem), :class=>"btn btn-large btn-danger" %>
+                   </div>   
+                <div class="caption">
+                  <div class="caption-inner">
+                   
+                    <div class="date ">
+                      <p> <span class="day"><%= showitem.showtimes.first.date.to_s(:day)%> </span><span class="month"><%= showitem.showtimes.first.date.to_s(:month)%></span> <span class="year"><%= showitem.showtimes.first.date.to_s(:year)%></span></p>
+                    </div>
+                    <div class="slideactions ">
+                      
+                      
+                      
+                      
+                      
+                    </div>
+                    </div>
+                  </div>
+                </li>
+                 
+
+<%end%>
+   </ul>
+          </div>

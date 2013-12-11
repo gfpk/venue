@@ -11,6 +11,7 @@ class Cart < ActiveRecord::Base
     else
 
       current_item = line_items.build(ticket: ticket_id)
+      
      
     end
     current_item

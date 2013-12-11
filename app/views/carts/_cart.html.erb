@@ -6,10 +6,10 @@
 	 
 	<tr class="lastrow">
 		<td colspan="3"><%= button_to 'Empty cart', @cart, :method => :delete,
-:confirm => 'Are you sure?', :class=>'btn btn-danger' %></td>
+:confirm => 'Are you sure?', :class=>'btn' %></td>
 
 <td style="text-align:right"><strong>Total:</strong></td>
-<td style="text-align:left"><strong class="text-info"><%= number_to_currency(@cart.total_price, :unit => '&euro;') %></strong></td>
+<td style="text-align:left"><strong ><%= number_to_currency(@cart.total_price, :unit => '&euro;') %></strong></td>
 <td></td>
 	</tr>
 </table>

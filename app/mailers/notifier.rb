@@ -10,7 +10,7 @@ class Notifier < ActionMailer::Base
     @greeting = "Hi"
     @order = order
 
-    mail :to => order.email, :subject => 'Kamil TY Cwelu!'
+    mail :to => order.email, :subject => 'Your booking confirmation from Tickets on Rails'
    
   end
 end
