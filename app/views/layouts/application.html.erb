@@ -72,7 +72,7 @@
 			<%= render :partial => 'layouts/datepicker'%>
 		</div>
 			
-		<div id="cart" class="row">
+		<div id="cart" class="">
 	      <% if @cart%>
 	          <%= hidden_div_if(@cart.line_items.empty?) do %>
 	              <%= render :partial => 'carts/cart', :object => @cart %>

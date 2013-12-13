@@ -25,6 +25,14 @@ $('.flexslider').flexslider();
 $(document.body).on('hidden.bs.modal', function () {
     $('#myModal').removeData('bs.modal')
 });
-$('.datepicker').datepicker({ minDate: 0, maxDate: "+10Y" }, {dateFormat: "yy-mm-dd"} );
-$("#datepicker").datepicker();
 
+
+
+$("#datepicker").datepicker({
+	altField: "#search",
+	altFormat: "yy-mm-dd",
+	minDate: 0,
+	onSelect: function(){
+		$('#datesel').submit();
+	}
+});

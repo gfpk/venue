@@ -7,35 +7,43 @@ class Showtime < ActiveRecord::Base
   after_create :add_tickets
   before_destroy :delatable, :del_tickets
 
-  def add_tickets
-    seats = ("A".."S").to_a - ["I", "O"]
+  def self.search(search)
+    if search
+       find(:all, :conditions => ['date LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
 
-    seats.each_slice(2) {|row| 
+    def add_tickets
+      seats = ("A".."S").to_a - ["I", "O"]
 
-      (1..22).each do |n|
-        unless row[0].nil? 
-            tickets.create(:seat => n.to_s + row[0], :price => price)
-          end
+      seats.each_slice(2) {|row| 
+
+        (1..22).each do |n|
+          unless row[0].nil? 
+              tickets.create(:seat => n.to_s + row[0], :price => price)
+            end
+        end
+
+      (1..23).each do |i|
+         unless row[1].nil? 
+          tickets.create(:seat => i.to_s + row[1], :price => price)
+         end
+      end
+     }
+
+
       end
 
-    (1..23).each do |i|
-       unless row[1].nil? 
-        tickets.create(:seat => i.to_s + row[1], :price => price)
-       end
+   def deletable_bis
+      delatable
     end
-   }
-
-
+    def soldout
+      if self.tickets.all? {|t| t.available == false}
+        return true
+      end
     end
-
- def deletable_bis
-    delatable
-  end
-  def soldout
-    if self.tickets.all? {|t| t.available == false}
-      return true
-    end
-  end
 
 private
   def delatable

@@ -5,7 +5,8 @@ class ShowtimesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   
   def index
-    @showtimes = Showtime.all
+    @showtimes = Showtime.search(params[:search])
+   
 
     respond_to do |format|
       format.html # index.html.erb
