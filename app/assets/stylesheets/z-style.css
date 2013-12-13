@@ -1,11 +1,21 @@
-@import url(http://fonts.googleapis.com/css?family=Oswald);
+.contextlinks-row .badge {
+    background: none repeat scroll 0 0 #990000;
+    border-radius: 0 0 2px 0;
+    font-weight: normal;
+    transition:0.2 all linear;
+    
+}
+
 body { padding-top: 35px; }
 #seatingplan ul {
     height: 11px;
     margin: -9px;
     padding: 0;
 }
-
+.container
+{
+    max-width:1025px;
+}
 a{
     text-decoration: none;
 }
@@ -38,16 +48,17 @@ nav
     background: #fefefe;
     border-bottom: 1px dotted #ccc;
 }
-.btn{
-    border-radius: 3px;
-    background: #cc0000;
-    color: #fff;
+.btn, input[type="submit"] {
+    background: none repeat scroll 0 0 #CC0000;
+    border: medium none;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
     display: inline-block;
-    
-    text-align: center;
+    line-height: 20px;
     margin: 2px 2px 2px 0;
-     transition: 0.25s ease-out; 
-
+    padding: 6px 20px;
+    text-align: center;
+    transition: all 0.25s ease-out 0s;
 }
 .btn:hover
 {
@@ -163,7 +174,7 @@ html body table td.metercell {
     padding-right: 30px;
     margin: 15px 5px;
 }
-input[type="text" ]{
+input[type="text" ], input[type="password" ], input[type="email" ]{
     border: 1px solid #C9C9C9;
     border-radius: 0px;
     text-shadow: 0 0 1px #FFFFFF;
@@ -294,7 +305,7 @@ li.slide
 }
 #cart {
     background-color: #20252A;
-    padding: 10px;
+    
     color: #fefefe;}
 
 #cart .btn {
@@ -306,4 +317,28 @@ li.slide
     line-height: 1.42857;
     padding: 8px;
     vertical-align: top;
+}
+.contextlinks-row
+{
+    position: absolute;
+}
+.contextlinks
+{
+    position: absolute;
+    background: #900;
+    color: #fff;
+    padding: 4px;
+}
+.contextlinks a 
+{
+    color: #fff;
+    float: left;
+}
+.showtimerow 
+{
+    background: none repeat scroll 0 0 #FBFBFC;
+    border: 1px dotted #D3D3D3 !important;
+    margin: 0;
+    padding: 18px;
+    margin-bottom: 10px;
 }

@@ -1,32 +1,30 @@
-<h1>Listing showitems</h1>
+<h3>Whats's on</h3>
 
 <table class="table table-stripped">
-  <tr>
-    <th>Name</th>
-    <th>Image</th>
-    <th>Featured</th>
-    <th>Description</th>
-    <th>Starts</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  
 
 <% @showitems.each do |showitem| %>
+<%if user_is_admin%>
+    <%=render 'layouts/adminlinks', :showitem=>showitem%>
+    <%end%>
   <tr>
-    <td><%= showitem.name %></td>
-    <td><%= image_tag showitem.image_url(:thumb) %></td>
-    <td><%= showitem.featured %></td>
-    <td><%= showitem.description %></td>
-    <td><%= showitem.showtimes.first.date.to_s(:def) unless showitem.showtimes.empty? %></td>
     
-    <td><%= link_to 'Show', showitem %></td>
-    <td><%= link_to 'Edit', edit_showitem_path(showitem) %></td>
-    <td><%= link_to 'Destroy', showitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td width="180"><%=link_to showitem do %><%= image_tag showitem.image_url(:thumb)%><%end%></td>
+    <td><h3><%=link_to showitem do %><%= showitem.name %><%end%></h3>
+      <span style="color:#111"><%= more_than_one?(showitem) %></span>
+      <h5><%= showitem.showtimes.first.date.to_s(:def) unless showitem.showtimes.empty? %></h5>
+    </td>
+    
+    
+    
+    <td><h2><%= link_to 'Show', showitem, :class=>'btn btn-block' %></h3></td>
+
   </tr>
+  
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Showitem', new_showitem_path %>
+<%if user_is_admin%>
+  <%= link_to 'New Showitem', new_showitem_path %>
+<%end%>

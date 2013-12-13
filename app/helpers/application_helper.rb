@@ -1,6 +1,11 @@
 module ApplicationHelper
 
 
+def more_than_one?(obj)
+  return ("<span>Starts </span>").html_safe if obj.showtimes.count>1
+
+end
+
 
 def hidden_div_if(condition, attributes = {}, &block)
   if condition

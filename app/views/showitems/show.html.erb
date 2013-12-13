@@ -9,6 +9,7 @@
 
   <%= image_tag @showitem.image_url(:big) %>
 <div class="caption">
+ <span style="color:#fff"> <%= more_than_one?(@showitem) %></span>
                   <div class="caption-inner">
                    
                     <div class="date ">
@@ -54,6 +55,7 @@
   <%= @showitem.description %>
 </p>
 
-
-<%= link_to 'Edit', edit_showitem_path(@showitem) %> |
-<%= link_to 'Back', showitems_path %>
+<%if user_is_admin%>
+  <%= link_to 'Edit', edit_showitem_path(@showitem) %> |
+  <%= link_to 'Back', showitems_path %>
+<%end%>

@@ -1,7 +1,7 @@
-<div class = "showtimerow clearfix">
+<div class = "showtimerow ">
 <div class="field-hor">
     <%= f.label :date %>
-    <%= f.date_select :date %>
+    <%= f.text_field :date, :class=>'datepicker' %>
   </div>
   <div class="field-hor">
     <%= f.label :time %>

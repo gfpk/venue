@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default :from => 'Box ffice <boxoffice@ticketsonrails.com>'
+  default :from => 'Box Office <boxoffice@ticketsonrails.com>'
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:

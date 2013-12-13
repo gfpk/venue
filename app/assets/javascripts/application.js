@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.datepicker
 //= require_tree .
+
 $('.seat').popover({html:true});
 $('.tool-trig').tooltip();
 //$(".alert").alert();
@@ -23,4 +25,6 @@ $('.flexslider').flexslider();
 $(document.body).on('hidden.bs.modal', function () {
     $('#myModal').removeData('bs.modal')
 });
+$('.datepicker').datepicker({ minDate: 0, maxDate: "+10Y" }, {dateFormat: "yy-mm-dd"} );
+$("#datepicker").datepicker();
 
