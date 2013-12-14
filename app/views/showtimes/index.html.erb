@@ -6,14 +6,14 @@
 <% @showtimes.group_by(&:showitem_id).each do |showitem, showtime| %>
   <tr><td colspan='4'><h4><%= Showitem.find(showitem).name %> </h4></td></tr>
  <% showtime.each do | showtime| %>  
- <tr> <td><%= link_to 'Show', showtime %></td>
-    <td><%= link_to 'Edit', edit_showtime_path(showtime) %></td>
-    <td><%= link_to 'Destroy', showtime, method: :delete, data: { confirm: 'Are you sure?' } %></td></tr>
-<tr>
+ <%if user_is_admin%>
+    <%=render 'layouts/adminlinks_showtime', :showtime=>showtime%>
+    <%end%>
+  <tr>
     <td><%= showtime.showtype %></td>
     <td><%= showtime.date.to_s(:def) %> @<%= showtime.date.to_s(:def) %></td>
     <td><%= showtime.price %></td>
-    <td><%= link_to 'BOOK', showtime , :class=>"btn"%></td>
+    <td><%= link_to 'BOOK', showtime , :class=>"btn btn-block"%></td>
    
     </tr>
     <%end%>

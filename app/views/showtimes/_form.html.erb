@@ -25,12 +25,9 @@
   </div>
   <div class="field">
     <%= f.label :showtype %><br />
-    <%= f.text_field :showtype %>
+    <%= f.select :showtype, options_for_select(["Matnee", "Evening", "Preview", "Premiere"]) %>
   </div>
-  <div class="field">
-    <%= f.label :showitem %><br />
-    <%= f.text_field :showitem %>
-  </div>
+ 
   <div class="actions">
     <%= f.submit %>
   </div>

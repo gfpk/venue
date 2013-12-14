@@ -13,6 +13,8 @@
 
  *= require_tree .
  */
+ td.highlight a
+ {background: #336699 !important}
 
 @font-face {
   font-family: 'Glyphicons Halflings';

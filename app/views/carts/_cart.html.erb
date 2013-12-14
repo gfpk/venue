@@ -5,7 +5,7 @@
 	<%= render :partial => "line_items/line_item", :collection => cart.line_items %>
 	 
 	<tr class="lastrow">
-		<td colspan="3"><%= button_to 'Empty cart', @cart, :method => :delete,
+		<td colspan="2"><%= button_to 'Empty cart', @cart, :method => :delete,
 :confirm => 'Are you sure?', :class=>'btn' %></td>
 
 <td style="text-align:right"><strong>Total:</strong></td>

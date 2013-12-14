@@ -8,9 +8,9 @@
       </div>
       <div class="modal-body">
        
-          <h2>Seat: <%= @ticket.seat %></h2>
+          <h3>Seat: <%= @ticket.seat %></h3>
       
-          <h3>Price:  <%= number_to_currency(@ticket.price, :unit => '&euro;') %></h3>
+          <h4>Price:  <%= number_to_currency(@ticket.price, :unit => '&euro;') %></h4>
           <p>Stage view from selected seat:</p>
 
           <img src="/seatviews/<%= @ticket.seat %>.jpg" />
@@ -18,7 +18,7 @@
       </div>
       <div class="modal-footer">
  
-       <% if @ticket.available %><%= button_to 'Add this ticket to' , line_items_path(:ticket_id => @ticket.id), :remote => true, :class=>"btn btn-block" %><%elsif @ticket.available == false && @ticket.in_cart(@cart)%><button type="button" class="btn btn-block btn-primary"  data-dismiss="modal">Ticket already in cart :)</button><%else%>
+       <% if @ticket.available %><%= button_to 'Add this ticket to cart' , line_items_path(:ticket_id => @ticket.id), :remote => true, :class=>"btn btn-block" %><%elsif @ticket.available == false && @ticket.in_cart(@cart)%><button type="button" class="btn btn-block btn-primary"  data-dismiss="modal">Ticket already in cart :)</button><%else%>
        <h3>Ticket <b><i>not</i></b> available</h3><%end%>
       </div>
     </div><!-- /.modal-content -->

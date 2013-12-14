@@ -1,0 +1,17 @@
+<tr class="contextlinks-row">
+	<td colspan="3">
+		<div class="dropdown">
+		  <a data-toggle="dropdown" href="#" class="badge">Manage <span class="glyphicon glyphicon-cog"></span>
+</a>
+		  <ul class="dropdown-menu" role="menu" aria-labelledby="Label">
+		    <li><%= link_to 'Edit', edit_showtime_path(showtime) %></li>
+		     <li><%= link_to 'Show', showtime %></li>
+		    <li class="divider" role="presentation"></li>
+		    <li><%= link_to 'Destroy', showtime, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+		   
+		  </ul>
+		</div>
+
+		
+	</td>
+</tr>

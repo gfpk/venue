@@ -1,3 +1,6 @@
+#myModal .modal-body h3
+{
+    margin-top: 0}
 .ll-skin-santiago {
     font-size: 90%;
 }
@@ -146,6 +149,17 @@
     background-image: -webkit-linear-gradient(bottom, #b32b0b 0%, #cd300c 100%);
     background-image: linear-gradient(bottom, #b32b0b 0%, #cd300c 100%);
 }
+aside
+{
+    background: #efefef; /* Old browsers */
+background: -moz-linear-gradient(top, #efefef 0%, #ffffff 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efefef), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #efefef 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #efefef 0%,#ffffff 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #efefef 0%,#ffffff 100%); /* IE10+ */
+background: linear-gradient(to bottom, #efefef 0%,#ffffff 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
 .ui-datepicker {
    
     margin-bottom: 25px;
@@ -154,7 +168,7 @@
 }
 
 .contextlinks-row .badge {
-    background: none repeat scroll 0 0 #990000;
+    background: none repeat scroll 0 0 #336699;
     border-radius: 0 0 2px 0;
     font-weight: normal;
     transition:0.2 all linear;

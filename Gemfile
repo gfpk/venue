@@ -32,6 +32,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'thin'
 gem 'jquery-ui-rails'
+gem 'whenever', require: false
 
 
 # To use ActiveModel has_secure_password
