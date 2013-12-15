@@ -16,15 +16,13 @@
 //= require_tree .
 
 function jqRestore(){
-	console.log('jqRestore')
-};
-jqRestore();
+	
 
 //$('.seat').popover({html:true});
 $('.tool-trig').tooltip();
-$('.popover-trig').on('jqRestore', function(){
-	$(this).popover();
-});
+
+$('.popover-trig').popover();
+
 //$(".alert").alert();
 
 $(".alert").addClass("in");
@@ -44,3 +42,5 @@ $("#datepicker").datepicker({
 		$('#datesel').submit();
 	}
 });
+};
+jqRestore();
