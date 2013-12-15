@@ -8,7 +8,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div id='tray'>
+	<div class='container'>
+	</div>
+</div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   
 </div><!-- /.modal -->
@@ -69,15 +72,24 @@
 			
 			
 		<div>
-			<%= render :partial => 'layouts/datepicker'%>
+			<%if @datepicker || @homepage%>
+				<%= render :partial => 'layouts/datepicker'%>
+			<%end%>
 		</div>
 			
 		<div id="cart" class="">
+			<%if @cart.line_items.empty?%>
+			<h4 style="padding:10px">No tickets selected <span class="glyphicon glyphicon-shopping-cart"></span></h4>
+			<%end%>
 	      <% if @cart%>
 	          <%= hidden_div_if(@cart.line_items.empty?) do %>
 	              <%= render :partial => 'carts/cart', :object => @cart %>
 	          <% end %>
 	      <% end %>
+	      
+    	</div>
+<div id="ad">
+    		<%=render 'layouts/dummyad'%>
     	</div>
 		</aside>
 

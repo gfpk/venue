@@ -1,6 +1,6 @@
 
 <% unless cart.line_items.empty? %><div style="padding:10px">
-<h4><i class="icon icon-shopping-cart"></i> Your Selected Tickets <span class="glyphicon glyphicon-shopping-cart"></span></h4>
+<h4>Your Selected Tickets <span class="glyphicon glyphicon-shopping-cart"></span></h4>
 <table class="table table-condensed table-responsive ">
 	<%= render :partial => "line_items/line_item", :collection => cart.line_items %>
 	 
@@ -16,6 +16,5 @@
 <%= button_to "Checkout", new_order_path, :method => :get, :class=>'btn btn-block btn-large' %>
 
 
-
-<%end%>
 </div>
+<%end%>

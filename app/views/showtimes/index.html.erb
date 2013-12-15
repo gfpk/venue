@@ -1,28 +1,3 @@
-<h1>Listing showtimes</h1>
-
-<table class="table table-stripped table condensed">
-
-
-<% @showtimes.group_by(&:showitem_id).each do |showitem, showtime| %>
-  <tr><td colspan='4'><h4><%= Showitem.find(showitem).name %> </h4></td></tr>
- <% showtime.each do | showtime| %>  
- <%if user_is_admin%>
-    <%=render 'layouts/adminlinks_showtime', :showtime=>showtime%>
-    <%end%>
-  <tr>
-    <td><%= showtime.showtype %></td>
-    <td><%= showtime.date.to_s(:def) %> @<%= showtime.date.to_s(:def) %></td>
-    <td><%= showtime.price %></td>
-    <td><%= link_to 'BOOK', showtime , :class=>"btn btn-block"%></td>
-   
-    </tr>
-    <%end%>
-  
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Showtime', new_showtime_path %>
-
-
+<div id='list'>
+    <%=render 'list'%>
+</div>

@@ -2,7 +2,6 @@
  <ul class="nav navbar-nav ">
 	<li><%= link_to 'ShowItems', showitems_path %></li>
 	<li><%= link_to 'ShowTimes', showtimes_path %></li>
-	<li><%= link_to 'ShowTimes', showtimes_path %></li>
 	<li><%= link_to 'Tickets', tickets_path %></li>
 	<li><%= link_to 'Carts', carts_path %></li>
 	<li><%= link_to 'Line Items', line_items_path %></li>
@@ -14,7 +13,7 @@
 
     <% if user_signed_in? %>
       <li class="navbar-text"><%= current_user.email %> <%= current_user.role %></li>
-      <li><%= link_to 'Edit profile', edit_user_registration_path %> </li>
+      <li><%= link_to edit_user_registration_path do%><span class="glyphicon glyphicon-user"></span> <%end%></li>
       <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
     <% else %>
     <li></li>

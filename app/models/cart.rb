@@ -14,8 +14,8 @@ class Cart < ActiveRecord::Base
 
   def cart_cleanup
     
-        if Time.now > c.updated_at + (1*60)
-          c.destroy
+        if Time.now > self.updated_at + (1*60)
+          self.destroy
         end
     
   end

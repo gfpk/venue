@@ -3,9 +3,11 @@ class ApplicationController < ActionController::Base
   before_filter :get_cart , :except => :cart
   
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to main_app.root_url, :alert => exception.message
+    redirect_to :back, :alert => exception.message
   end
-
+  def after_sign_out_path_for(resource_or_scope)
+    request.referrer
+  end
   
 
 

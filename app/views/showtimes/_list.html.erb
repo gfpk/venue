@@ -1,0 +1,35 @@
+<h1>Listing showtimes</h1>
+<%if @showtimes.length>0%>
+<table class="table table-stripped table condensed">
+
+
+<% @showtimes.group_by(&:showitem_id).each do |showitem, showtime| %>
+  <tr>
+    
+        <% showitem =  Showitem.find(showitem)%>
+    
+<td colspan='4'><h4><%= showitem.name %> <span class="glyphicon glyphicon-info-sign pull-right popover-trig" data-content="<%= showitem.description%>" data-placement="top" data-toggle="popover" data-container="body"  title="abot the show"></span></h4></td></tr>
+ <% showtime.each do | showtime| %>  
+ <%if user_is_admin%>
+    <%=render 'layouts/adminlinks_showtime', :showtime=>showtime%>
+    <%end%>
+  <tr>
+    <td><%= showtime.showtype %></td>
+    <td><%= showtime.date.to_s(:def) %> @<%= showtime.date.to_s(:def) %></td>
+    <td>
+    <%= number_to_currency(showtime.price, :unit => '&euro;') %></td>
+    <td><%= link_to 'BOOK', showtime , :class=>"btn btn-block"%></td>
+   
+    </tr>
+    <%end%>
+  
+<% end %>
+</table>
+
+<br />
+
+
+<%else%>
+<h2>No shows match your crirtera</h2>
+
+<%end%>

@@ -3,13 +3,20 @@ class ShowtimesController < ApplicationController
   # GET /showtimes.json
 
   before_filter :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource
   
   def index
     @showtimes = Showtime.search(params[:search])
+    @datepicker = true
+    @datepicker_ajax = true
    
 
     respond_to do |format|
-      format.html # index.html.erb
+       if request.xhr?
+        format.js { render 'index_ajax.js.erb', :layout => false }
+      else
+        format.html 
+      end
       format.json { render json: @showtimes }
     end
   end

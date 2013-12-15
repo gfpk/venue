@@ -8,6 +8,7 @@ before_filter :authenticate_user!, except: [:index, :show]
     @showitems = Showitem.all
     @homepage = true
 
+
     respond_to do |format|
       
       format.html # index.html.erb
@@ -19,6 +20,7 @@ before_filter :authenticate_user!, except: [:index, :show]
   # GET /showitems/1.json
   def show
     @showitem = Showitem.find(params[:id])
+    @datepicker = true
 
     respond_to do |format|
       format.html # show.html.erb

@@ -15,8 +15,16 @@
 //= require jquery.ui.datepicker
 //= require_tree .
 
-$('.seat').popover({html:true});
+function jqRestore(){
+	console.log('jqRestore')
+};
+jqRestore();
+
+//$('.seat').popover({html:true});
 $('.tool-trig').tooltip();
+$('.popover-trig').on('jqRestore', function(){
+	$(this).popover();
+});
 //$(".alert").alert();
 
 $(".alert").addClass("in");

@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('glyphicons-halflings-regular.eot');
+  src: url('glyphicons-halflings-regular.eot') format('embedded-opentype'); 
+  src: url('glyphicons-halflings-regular.woff') format('woff'); 
+  src:url('glyphicons-halflings-regular.ttf') format('truetype'), 
+  url('glyphicons-halflings-regular.svg') format('svg');
+}
 #myModal .modal-body h3
 {
     margin-top: 0}
@@ -171,8 +179,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', end
     background: none repeat scroll 0 0 #336699;
     border-radius: 0 0 2px 0;
     font-weight: normal;
-    transition:0.2 all linear;
-    
+    position: relative;
+    top: 25px;
 }
 
 body { padding-top: 35px; }
@@ -474,7 +482,7 @@ li.slide
 }
 #cart {
     background-color: #20252A;
-    
+    margin: 10px 0;
     color: #fefefe;}
 
 #cart .btn {
@@ -513,4 +521,52 @@ li.slide
 }
 #datesel{
     display: none;
+}
+#ad-cont
+{
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.39);
+
+}
+.ad-tit
+{
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
+    color: #EEEEEE;
+    font-size: 18px;
+    padding: 14px 0 16px;
+
+
+}
+.ad-caption
+{
+    position: absolute;
+    text-align: center;
+    top: 20%;
+    width: 100%;
+    font-family: 'Oswald'
+}
+.ad-caption .btn {background: #fff;color: #900}
+.ad-caption .btn:hover{opacity: 0.85; color: #900}
+td .glyphicon-info-sign.popover-trig
+{
+    margin-right: 10px;
+    font-size: 22px;
+    
+    cursor: pointer;
+}
+.popover {
+   
+    border-radius: 2px ;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+padding: 0;}
+.popover-title {
+    background-color: #336699;
+    color: #fff;
+    border-bottom: 1px solid #EBEBEB;
+    border-radius: 1px 1px 0 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 18px;
+    margin: 0;
+    padding: 8px 14px;
 }
