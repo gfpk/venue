@@ -19,28 +19,39 @@ function jqRestore(){
 	
 
 //$('.seat').popover({html:true});
-$('.tool-trig').tooltip();
+	$('.tool-trig').tooltip();
 
-$('.popover-trig').popover();
+	$('.popover-trig').popover();
 
-//$(".alert").alert();
+	
+	$("#datepicker").datepicker({
+	    showButtonPanel: false,
+	    firstDay: 1,
+	    dateFormat: 'yyyy-mm-dd',
+	    altField: "#search",
+	    altFormat: "yy-mm-dd",
+	    minDate: 0,
+	    onSelect: function(){
+	       $('#datesel').submit();
+	    }
+	});
 
-$(".alert").addClass("in");
-$('.flexslider').flexslider();
+	//$(".alert").alert();
 
-$(document.body).on('hidden.bs.modal', function () {
-    $('#myModal').removeData('bs.modal')
-});
+	$(".alert").addClass("in");
+	$('.flexslider').flexslider();
+	$(document.body).on('hidden.bs.modal', function () {
+		$('#myModal').removeData('bs.modal');
+	});
 
-
-
-$("#datepicker").datepicker({
-	altField: "#search",
-	altFormat: "yy-mm-dd",
-	minDate: 0,
-	onSelect: function(){
-		$('#datesel').submit();
-	}
-});
+	
 };
+
 jqRestore();
+
+
+	
+	
+
+
+ 

@@ -9,7 +9,7 @@
 
   <%= image_tag @showitem.image_url(:big) %>
 <div class="caption">
- <span style="color:#fff"> <%= more_than_one?(@showitem) %></span>
+ <span style="color:#fff"> <%= Mul.more_than_one?(@showitem, 'showtimes', 'Starts') %></span>
                   <div class="caption-inner">
                    
                     <div class="date ">

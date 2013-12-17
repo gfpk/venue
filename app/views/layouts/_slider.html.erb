@@ -10,7 +10,7 @@
                 <%= link_to 'BOOK NOW', showitem_path(showitem), :class=>"btn btn-large btn-danger" %>
                    </div>   
                 <div class="caption">
-                  <span style="color:#fff"><%= more_than_one?(showitem) %></span>
+                  <span style="color:#fff"><%= Mul.more_than_one?(showitem, 'showtimes', 'starts') %></span>
                   <div class="caption-inner">
                    
                     <div class="date ">

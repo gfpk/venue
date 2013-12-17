@@ -6,9 +6,11 @@
   src:url('glyphicons-halflings-regular.ttf') format('truetype'), 
   url('glyphicons-halflings-regular.svg') format('svg');
 }
-#myModal .modal-body h3
-{
-    margin-top: 0}
+ .ll-skin-santiago .ui-datepicker td.with-show
+ {
+    background: #336699;
+ }
+
 .ll-skin-santiago {
     font-size: 90%;
 }

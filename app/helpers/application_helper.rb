@@ -1,8 +1,10 @@
 module ApplicationHelper
 
 
-def more_than_one?(obj)
-  return ("<span>Starts </span>").html_safe if obj.showtimes.count>1
+def more_than_one?(obj, assoc, expression)
+  text = expression.to_s
+  
+  return (text).html_safe if obj.send(assoc).count>1
 
 end
 

@@ -11,7 +11,7 @@
     
     <td width="180"><%=link_to showitem do %><%= image_tag showitem.image_url(:thumb)%><%end%></td>
     <td><h3><%=link_to showitem do %><%= showitem.name %><%end%></h3>
-      <span style="color:#111"><%= more_than_one?(showitem) %></span>
+      <span style="color:#111"><%= Mul.more_than_one?(showitem, 'showtimes', 'Starts:') %></span>
       <h5><%= showitem.showtimes.first.date.to_s(:def) unless showitem.showtimes.empty? %></h5>
     </td>
     
