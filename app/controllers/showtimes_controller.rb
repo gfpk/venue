@@ -17,7 +17,8 @@ class ShowtimesController < ApplicationController
       else
         format.html 
       end
-      format.json { render json: @showtimes }
+      format.json { render json: @showtimes.to_json(:include => { :showitem => { :only => [:name] } })}
+     #{ render :json => @things.to_json(:include => { :photos => { :only => [:id, :url] } }) }
     end
   end
 

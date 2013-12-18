@@ -14,8 +14,13 @@
  *= require_tree .
  */
  td.highlight a
- {background: #336699 !important}
-
+ {background-image: url("/cal-bg.png") !important;
+background-position: top left !important;
+background-repeat: no-repeat !important;}
+td.highlight a.ui-state-active
+{
+    background-color: #900 !important;
+}
 
 #seatingplan {
     cursor: pointer;
