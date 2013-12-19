@@ -25,7 +25,17 @@
 	
 	<nav class="navbar navbar-inverse navbar-fixed-top" id="adminbar">
 		<div class="container">
-			<div id="user_nav">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#user_nav">
+				<%if user_is_admin %>
+					<span class="glyphicon glyphicon-user" style="color:#900"></span>
+				<%elsif user_signed_in?%>
+			      <span class="glyphicon glyphicon-user"></span>
+			      <%else%>
+			      <span class="glyphicon glyphicon-lock"></span>
+			      
+			      <%end%>
+			    </button>
+			<div id="user_nav" class="collapse navbar-collapse">
 				<%= render 'layouts/usernav'%>
 			</div>
 		</div>
@@ -33,12 +43,22 @@
 
 	<nav class="navbar navbar-static-top navbar-default">
 		<div class="container">
-			<%=link_to  root_path, id: "logo" do %>
-  				<img src="/tor-logo.png"%>
-  
-			<% end %>
 			
-			<div class="pull-right" id="main-nav">
+			 <div class="navbar-header">
+			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+
+			      <span class="sr-only">Toggle navigation</span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			    </button>
+			    <%=link_to  root_path, id: "logo", class: 'brand' do %>
+  					<img src="/tor-logo.png"%>
+  
+				<% end %>
+			  </div>
+
+			<div class="collapse navbar-collapse" id="main-nav">
 				<%= render 'layouts/adminmenu'%>
 			</div>
 		</div>

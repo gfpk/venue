@@ -32,7 +32,7 @@ Array.prototype.unique =
     }
     return a;
   };
-
+$('.flexslider').flexslider();
 $('.seat').popover({html:true});
 $('.tool-trig').tooltip();
 
@@ -84,11 +84,25 @@ $.ajax({
 	   
 	}
 });
-//console.log(dates);
+
 //console.log(desc);
 
-var daysWithShows = dates.unique();
+var daysWithShows = ["2013-12-14", "2013-12-16", "2013-12-16", "2013-12-16", "2013-12-14", "2013-12-16", "2013-12-17", "2013-12-16", "2013-12-19", "2013-12-16", "2013-12-15", "2013-12-18", "2013-12-19", "2013-12-20", "2013-12-21", "2013-12-22", "2013-12-23", "2013-12-21", "2013-12-22", "2013-12-25", "2013-12-26", "2013-12-27", "2013-12-28", "2013-12-28", "2013-12-31", "2014-01-01", "2014-01-02", "2014-01-06", "2014-01-07", "2014-01-08"];
+console.log(daysWithShows);
 var showtitles = desc;
+
+var dateHighlight =  function (date) {
+	        var 
+	        y = date.getFullYear(), m = date.getMonth(),
+	            d = date.getDate(),
+	            
+	        for (var i = 0; i < daysWithShows.length; i++) {
+	            if ($.inArray(y + '-' + (m + 1) + '-' + d, daysWithShows) != -1) {
+	                return [true, 'highlight', showtitles[daysWithShows.indexOf(y + '-' + (m + 1) + '-' + d)]];
+	            }
+	        }
+	        return [true];
+	    };
 
 $("#datepicker").datepicker({
 
@@ -98,17 +112,10 @@ $("#datepicker").datepicker({
 	    altFormat: "yy-mm-dd",
 	    minDate: 0,
 
-	    beforeShowDay: function (date) {
-	        var m = date.getMonth(),
-	            d = date.getDate(),
-	            y = date.getFullYear();
-	        for (var i = 0; i < daysWithShows.length; i++) {
-	            if ($.inArray(y + '-' + (m + 1) + '-' + d, daysWithShows) != -1) {
-	                return [true, 'highlight', showtitles[daysWithShows.indexOf(y + '-' + (m + 1) + '-' + d)]];
-	            }
-	        }
-	        return [true];
-	    },
+
+
+	    beforeShowDay: dateHighlight,
+	    
 	    onSelect: function(){
 	       $('#datesel').submit();
 	    }
@@ -123,8 +130,19 @@ $("#datepicker").datepicker({
 	    }*/
 });
 
-$('#datepicker td.highlight a').tooltip({
-	title: $(this).attr("title"),
+
+$('#datepicker td a').each(function() {
+    
+    var tit = $(this).closest('td').attr('title');
+ 	if(typeof tit != 'undefined'){
+    	$(this).attr('title', tit);}
+    else{
+    	$(this).attr('title', 'no shows');
+    }
+    
+});
+
+$('#datepicker td a ').tooltip({
 
 });
 	

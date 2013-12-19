@@ -143,12 +143,16 @@
     font-weight: normal;
     text-align: center;
 }
+body
 
 .ll-skin-santiago .ui-datepicker-calendar .ui-state-hover {
     background: #ededed;
     color: #b2b2b2;
 }
-
+#seatingplan
+{
+    min-width: 605px;
+}
 .ll-skin-santiago td a.ui-state-active,
 .ll-skin-santiago td a.ui-state-active.ui-state-hover {
     color: #fff;
@@ -158,6 +162,10 @@
     background-image: -o-linear-gradient(bottom, #b32b0b 0%, #cd300c 100%);
     background-image: -webkit-linear-gradient(bottom, #b32b0b 0%, #cd300c 100%);
     background-image: linear-gradient(bottom, #b32b0b 0%, #cd300c 100%);
+}
+.navbar-inverse .navbar-toggle {
+    padding: 4px;
+    margin: 4px 7px;
 }
 aside
 {
