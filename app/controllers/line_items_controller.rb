@@ -46,7 +46,7 @@ class LineItemsController < ApplicationController
     @cart = current_cart
     ticket = Ticket.find(params[:ticket_id])
     @line_item = @cart.add_ticket(ticket)
-
+    @showtime = @line_item.ticket.showtime
 
     respond_to do |format|
       if @line_item.save
