@@ -18,20 +18,7 @@
 function jqRestore(){
 
 
-Array.prototype.unique =
-  function() {
-    var a = [];
-    var l = this.length;
-    for(var i=0; i<l; i++) {
-      for(var j=i+1; j<l; j++) {
-        // If this[i] is found later in the array
-        if (this[i] === this[j])
-          j = ++i;
-      }
-      a.push(this[i]);
-    }
-    return a;
-  };
+
 $('.flexslider').flexslider();
 $('.seat').popover({html:true});
 $('.tool-trig').tooltip();
@@ -87,34 +74,60 @@ $.ajax({
 
 //console.log(desc);
 
-var daysWithShows = ["2013-12-14", "2013-12-16", "2013-12-16", "2013-12-16", "2013-12-14", "2013-12-16", "2013-12-17", "2013-12-16", "2013-12-19", "2013-12-16", "2013-12-15", "2013-12-18", "2013-12-19", "2013-12-20", "2013-12-21", "2013-12-22", "2013-12-23", "2013-12-21", "2013-12-22", "2013-12-25", "2013-12-26", "2013-12-27", "2013-12-28", "2013-12-28", "2013-12-31", "2014-01-01", "2014-01-02", "2014-01-06", "2014-01-07", "2014-01-08"];
+var daysWithShows = jQuery.unique(dates);
 console.log(daysWithShows);
 var showtitles = desc;
 
 var dateHighlight =  function (date) {
-	        var 
-	        y = date.getFullYear(), m = date.getMonth(),
-	            d = date.getDate(),
+	        var d = ('0' + date.getDate()).slice(-2),
+	        	y = date.getFullYear(), 
+	        	m = ('0' + (date.getMonth()+1)).slice(-2);
+	            
+
+
+	            //console.log(y + '-' + m  + '-' + d);
 	            
 	        for (var i = 0; i < daysWithShows.length; i++) {
-	            if ($.inArray(y + '-' + (m + 1) + '-' + d, daysWithShows) != -1) {
-	                return [true, 'highlight', showtitles[daysWithShows.indexOf(y + '-' + (m + 1) + '-' + d)]];
+	        		
+	            if ($.inArray(y + '-' + m + '-' + d, daysWithShows) != -1) {
+
+	                return [true, 'highlight', showtitles[daysWithShows.indexOf(y + '-' + m  + '-' + d)]];
 	            }
 	        }
 	        return [true];
 	    };
+ 
 
 $("#datepicker").datepicker({
 
      	
-	    dateFormat: 'yyyy-mm-dd',
+	    dateFormat: 'yyyy-mm-d',
 	    altField: "#search",
 	    altFormat: "yy-mm-dd",
 	    minDate: 0,
 
+	    //numberOfMonths: 2,
+
 
 
 	    beforeShowDay: dateHighlight,
+	    afterAdjustDate: function(){
+	       $('#datepicker td a').each(function() {
+    
+    var tit = $(this).closest('td').attr('title');
+ 	if(typeof tit != 'undefined'){
+    	$(this).attr('title', tit);}
+    else{
+    	$(this).attr('title', 'no shows');
+    }
+    
+});
+
+
+$('#datepicker td a ').tooltip({
+
+});
+	    },
 	    
 	    onSelect: function(){
 	       $('#datesel').submit();
@@ -130,7 +143,7 @@ $("#datepicker").datepicker({
 	    }*/
 });
 
-
+var dateInter = function(){
 $('#datepicker td a').each(function() {
     
     var tit = $(this).closest('td').attr('title');
@@ -145,7 +158,8 @@ $('#datepicker td a').each(function() {
 $('#datepicker td a ').tooltip({
 
 });
-	
+dateInter();
+	}
 };
 
 jqRestore();
