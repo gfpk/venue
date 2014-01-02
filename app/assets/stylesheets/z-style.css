@@ -254,10 +254,9 @@ nav
 
 .seat{
     display: inline-block;
-    width:20px;
-    height: 20px;
+   
     background:#eee;
-    margin: 2px;
+   
     border:1px solid #999;
     border-radius: 2px;
     text-align: center;
@@ -579,4 +578,9 @@ padding: 0;}
     line-height: 18px;
     margin: 0;
     padding: 8px 14px;
+}
+#flash .alert
+{
+    
+    overflow: hidden;
 }

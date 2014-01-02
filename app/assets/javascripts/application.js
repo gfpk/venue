@@ -16,157 +16,190 @@
 //= require_tree .
 
 function jqRestore(){
-
-
-
-$('.flexslider').flexslider();
-$('.seat').popover({html:true});
-$('.tool-trig').tooltip();
-
-$('.popover-trig').popover();
-
+<<<<<<< HEAD
 	
-	/*$("#datepicker").datepicker({
-	    showButtonPanel: false,
-	    firstDay: 1,
-	    dateFormat: 'yyyy-mm-dd',
-	    altField: "#search",
-	    altFormat: "yy-mm-dd",
-	    minDate: 0,
-	    beforeShowDay: highlightDays,
-        //onChangeMonthYear: fetchFreeDays,
-	    onSelect: function(){
-	       $('#datesel').submit();
-	    }
-	   
-	});*/
-
-	
-/*$.getJSON( "http://localhost:3000/showtimes", function( data ) {
-	var items = [];
-	console.log(data);
-	$.each( data, function( key, val ) {
-		items.push(  this.date  );
+	$('.flexslider').flexslider();
+	$('.seat').popover({html:true});
+	$('.tool-trig').tooltip();
+	$('.popover-trig').popover();
+	$(".alert").addClass("in");
+	$(document.body).on('hidden.bs.modal', function () {
+	    $('#myModal').removeData('bs.modal')
 	});
-	alert (items);
+	function alertTimeout(wait){
+	    setTimeout(function(){
+	        $('#flash').children('.alert:first-child').animate({ opacity: "0", height: '0px' }, 600 ,'linear', function(){
+	        $('#flash').children('.alert:first-child').remove();
+	        });
+=======
+	
+	$('.flexslider').flexslider();
+	$('.seat').popover({html:true});
+	$('.tool-trig').tooltip();
+	$('.popover-trig').popover();
+	$(".alert").addClass("in");
+	$(document.body).on('hidden.bs.modal', function () {
+	    $('#myModal').removeData('bs.modal')
+	});
 
-});*/
-var dates = [];
-var desc = [];
+	
+	var dates = [];
+	var shows = [];
+	var showjson = {};
+
+	$.ajax({
+		url: 'http://localhost:3000/showtimes',
+		type: "GET",
+		dataType: "json",
+		async: false,
+		success: function (data) {
+			$.each( data, function() {
+				dates.push(this.date);
+				if (this.date)
+				var x = {};
+				x[this.date] = this.showitem.name;
+				showjson.push(x);
+				shows.push(this.showitem.name);
+			});
+		}
+	});
+
+>>>>>>> e7086e4378f5ec31b1afed5e3210195c266f3514
+
+	    }, wait);
+	};
+	alertTimeout(2500);
+
+<<<<<<< HEAD
+	
+	var dates = [];
+	var shows = [];
+	
+	
+
+	$.ajax({
+		url: 'http://localhost:3000/showtimes',
+		type: "GET",
+		dataType: "json",
+		async: false,
+		success: function (data) {
+			var d = [];
+			$.each( data, function() {
+				d.push(this.date);
+				//shows.push(this.showitem.name);
+			});
+			dates = $.unique(d);
+			for(i=0;i<dates.length;i++)
+				{
+					var s =[];
+					$.each( data, function() {
+
+						if(dates[i] == this.date && $.inArray(this.showitem.name, s))
+							{
+								s.push(this.showitem.name)
+							}
+						
+					});
+					
+					shows.push(s);
+				}
+		}
+	});
+
+	
+	
+	console.log(dates);
+	
+	console.log(shows);
+	
+	var daysWithShows = dates;
+	var showtitles = shows;
 
 
-$.ajax({
-	url: 'http://localhost:3000/showtimes',
-	type: "GET",
-	dataType: "json",
-	async: false,
-	success: function (data) {
+=======
+	console.log(dates);
+	var daysWithShows = jQuery.unique(dates);
+	console.log(daysWithShows);
+	console.log(showjson);
+	var showtitles = shows;
 
-		
 
-	    $.each( data, function( key, val ) {
-			dates.push( this.date  );
-			desc.push( this.showitem.name  );
-		});
-	   
-	}
-});
-
-//console.log(desc);
-
-var daysWithShows = jQuery.unique(dates);
-console.log(daysWithShows);
-var showtitles = desc;
-
-var dateHighlight =  function (date) {
+>>>>>>> e7086e4378f5ec31b1afed5e3210195c266f3514
+	var dateHighlight =  function (date) {
 	        var d = ('0' + date.getDate()).slice(-2),
 	        	y = date.getFullYear(), 
 	        	m = ('0' + (date.getMonth()+1)).slice(-2);
 	            
-
-
-	            //console.log(y + '-' + m  + '-' + d);
+			//console.log(y + '-' + m  + '-' + d);
 	            
 	        for (var i = 0; i < daysWithShows.length; i++) {
 	        		
 	            if ($.inArray(y + '-' + m + '-' + d, daysWithShows) != -1) {
-
+<<<<<<< HEAD
+	                return [true, 'highlight', showtitles[daysWithShows.indexOf(y + '-' + m  + '-' + d)].join(' + ')];
+=======
 	                return [true, 'highlight', showtitles[daysWithShows.indexOf(y + '-' + m  + '-' + d)]];
+>>>>>>> e7086e4378f5ec31b1afed5e3210195c266f3514
 	            }
 	        }
 	        return [true];
 	    };
  
 
-$("#datepicker").datepicker({
+	$("#datepicker").datepicker({
+	     	
+		    dateFormat: 'yyyy-mm-d',
+		    altField: "#search",
+		    altFormat: "yy-mm-dd",
+		    minDate: 0,
+		    beforeShowDay: dateHighlight,
+		    onSelect: function(){
+		       $('#datesel').submit();},
 
-     	
-	    dateFormat: 'yyyy-mm-d',
-	    altField: "#search",
-	    altFormat: "yy-mm-dd",
-	    minDate: 0,
+		   /* onChangeMonthYear:function(){
+			$('#datepicker td a').each(function(){
+				 //var tit = $(this).closest('td').attr('title');
+				 console.log(this);
+				 if(typeof tit != 'undefined'){
+				 	$(this).attr('title', tit)
+				 }else
+				 {
+				 	$(this).attr('title', 'no shows');
+				 }
+				 $(this).closest('td').removeAttr('title');
+			});	    
+		$('#datepicker td a ').tooltip();}   */ 
+	});
 
-	    //numberOfMonths: 2,
+	var datepicTips = function(){
+			$('#datepicker td a').each(function(){
+				 var tit = $(this).closest('td').attr('title');
+				 if(typeof tit != 'undefined'){
+				 	$(this).attr('title', tit)
+				 }else
+				 {
+				 	$(this).attr('title', 'no shows');
+				 }
+				 $(this).closest('td').removeAttr('title');
+			});	    
+		$('#datepicker td a ').tooltip();}
+	
+	datepicTips();
+	$('#datepicker').click(function(){
+		datepicTips();
+	});
 
-
-
-	    beforeShowDay: dateHighlight,
-	    afterAdjustDate: function(){
-	       $('#datepicker td a').each(function() {
-    
-    var tit = $(this).closest('td').attr('title');
- 	if(typeof tit != 'undefined'){
-    	$(this).attr('title', tit);}
-    else{
-    	$(this).attr('title', 'no shows');
-    }
-    
-});
-
-
-$('#datepicker td a ').tooltip({
-
-});
-	    },
-	    
-	    onSelect: function(){
-	       $('#datesel').submit();
-	    }
-	    /*onSelect: function(dateText, inst) {        
-	        var date = new Date(dateText.slice(4)),
-	            m = date.getMonth(),
-	            d = date.getDate(),
-	            y = date.getFullYear();        
-	        if ($.inArray(y + '-' + (m + 1) + '-' + d, daysWithShows) != -1) {
-	            window.location = hrefs[daysWithShows.indexOf((y + '-' + (m + 1) + '-' + d))];
-	        }
-	    }*/
-});
-
-var dateInter = function(){
-$('#datepicker td a').each(function() {
-    
-    var tit = $(this).closest('td').attr('title');
- 	if(typeof tit != 'undefined'){
-    	$(this).attr('title', tit);}
-    else{
-    	$(this).attr('title', 'no shows');
-    }
-    
-});
-
-$('#datepicker td a ').tooltip({
-
-});
-dateInter();
-	}
 };
+
 
 jqRestore();
 
 
+
+	
+
+
 	
 	
 
 
- 

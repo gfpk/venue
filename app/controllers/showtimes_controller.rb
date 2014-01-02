@@ -6,9 +6,10 @@ class ShowtimesController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @showtimes = Showtime.search(params[:search])
+    @showtimes = Showtime.search(params[:search]).sort_by &:date
     @datepicker = true
     @datepicker_ajax = true
+
    
 
     respond_to do |format|
@@ -26,10 +27,13 @@ class ShowtimesController < ApplicationController
   # GET /showtimes/1.json
   def show
     @showtime = Showtime.find(params[:id])
-
+    current_cart = @cart
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @showtime.tickets }
+       if request.xhr?
+         format.json { render json: @showtime.tickets.to_json(:methods => [:available]) }
+        else
+         format.html # show.html.erb
+      end
     end
   end
 

@@ -4,7 +4,7 @@
 <% else %>
 	<li >
 <%end%>		
-<%= link_to t.seat, t, :"data-avail"=> t.available, :"data-incart"=> t.in_cart(@cart), :"data-toggle"=>"modal", :"data-target"=>"#myModal" %>
+<%= link_to t.seat, t, :class=>'seat', :"data-avail"=> t.available, :"data-incart"=> t.in_cart(@cart), :"data-toggle"=>"modal", :"data-target"=>"#myModal" %>
 
 
 	</a>

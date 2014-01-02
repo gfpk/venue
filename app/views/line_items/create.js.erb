@@ -3,8 +3,37 @@ $('#myModal').modal('hide');
 
 $('#cart').html("<%=j render @cart %>");
 
+var tic_json =[];
+var source = $(location).attr('href')+'.json';
+console.log(source);
+$.ajax({
+		url: source,
+		type: "GET",
+		dataType: "json",
+		async: false,
+		success: function (data) {
+			/*$.each( data, function() {
+				console.log('little cunt')
+				});*/
+			$('#seatingplan .seat').each(function(index){
+					if(data[index].available == false)
+						{$(this).attr('data-avail', 'false');
+						if()
+
+					};
+				});
+			}
+		});
+
 if (<%=@showtime==@line_item.ticket.showtime%>){
-$('#seatingplan').html("<%=j render partial: 'showtimes/seating_layout', locals: { showtime: @showtime }%>");
- }
+//$('#seatingplan').html("<%=j render partial: 'showtimes/seating_layout', locals: { showtime: @showtime }%>");
+ 	
+
+ };
 
 $('li#current_item ').fadeTo(100, .1).delay(100).fadeTo(500, 1);
+<<<<<<< HEAD
+//jqRestore();
+=======
+jqRestore();
+>>>>>>> e7086e4378f5ec31b1afed5e3210195c266f3514
