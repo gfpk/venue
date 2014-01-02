@@ -29,7 +29,8 @@ function jqRestore(){
 	
 	var dates = [];
 	var shows = [];
-	var showjson = {};
+	var tooltips = [];
+	
 
 	$.ajax({
 		url: 'http://localhost:3000/showtimes',
@@ -37,24 +38,35 @@ function jqRestore(){
 		dataType: "json",
 		async: false,
 		success: function (data) {
+			
 			$.each( data, function() {
+				var show = 0;
+				if ($.inArray(this.date, dates)== -1){
 				dates.push(this.date);
-				if (this.date)
-				var x = {};
-				x[this.date] = this.showitem.name;
-				showjson.push(x);
-				shows.push(this.showitem.name);
+				
+				show = [this.showitem.name];
+				shows.push(show);
+
+			}else{shows[(dates.indexOf(this.date))].push(this.showitem.name)};
+				
+				
 			});
 		}
 	});
 
 
 
-	console.log(dates);
-	var daysWithShows = jQuery.unique(dates);
+	//console.log(dates);
+	var daysWithShows = dates;
 	console.log(daysWithShows);
-	console.log(showjson);
-	var showtitles = shows;
+	console.log(shows);
+	
+	for(var i=0; i<shows.length; i++ ){
+		x = $.unique(shows[i]).join(" + ");
+		tooltips.push(x);
+	}
+	
+	
 
 
 	var dateHighlight =  function (date) {
@@ -67,7 +79,7 @@ function jqRestore(){
 	        for (var i = 0; i < daysWithShows.length; i++) {
 	        		
 	            if ($.inArray(y + '-' + m + '-' + d, daysWithShows) != -1) {
-	                return [true, 'highlight', showtitles[daysWithShows.indexOf(y + '-' + m  + '-' + d)]];
+	                return [true, 'highlight', tooltips[daysWithShows.indexOf(y + '-' + m  + '-' + d)]];
 	            }
 	        }
 	        return [true];
