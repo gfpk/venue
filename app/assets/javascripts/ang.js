@@ -13,5 +13,11 @@ this.appControll = function($scope) {
     $scope.entries.push($scope.newEntry);
     $scope.newEntry = {}
 
+  },
+  $scope.drawWinner = function(){
+
+    entry = $scope.entries[Math.floor(Math.random() * $scope.entries.length)];
+    entry.winner = true;
+
   }
 };

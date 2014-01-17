@@ -7,11 +7,10 @@
 
 
 
+	<p ng-repeat="entry in entries">{{entry.name}}<span ng-show="entry.winner"> Whoa:)</span></p>
 
 
-	
+<button ng-click="drawWinner()">Draw Winner</button>
 
 
-
-	<p ng-repeat="entry in entries">{{entry.name}}</p>
 </div>
