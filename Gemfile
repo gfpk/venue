@@ -34,6 +34,7 @@ gem 'thin'
 gem 'jquery-ui-rails'
 gem 'whenever', require: false
 gem 'mul'
+gem 'angularjs-rails'
 
 
 # To use ActiveModel has_secure_password

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
   <title>Venue</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+    
+  
   
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
@@ -89,6 +91,11 @@
 		</div>
 
 		<aside class="col-md-4">
+
+		<div id="ang">
+			<p></p>
+    		<%=render 'layouts/ang'%>
+    	</div>
 			
 			
 			
@@ -112,6 +119,7 @@
 <div id="ad">
     		<%=render 'layouts/dummyad'%>
     	</div>
+    	
 		</aside>
 
 		</div>
@@ -121,6 +129,7 @@
 			<h4>Footer</4>
 		</div>
 	</footer>
-  <%= javascript_include_tag "application" %>
+	
+<%= javascript_include_tag "application" %>
 </body>
 </html>
