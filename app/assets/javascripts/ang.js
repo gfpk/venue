@@ -1,5 +1,5 @@
 this.appControll = function($scope) {
-  return $scope.entries = [
+ $scope.entries = [
     {
       name: "Larry"
     }, {
@@ -7,5 +7,11 @@ this.appControll = function($scope) {
     }, {
       name: "Moe"
     }
-  ];
+  ],
+  $scope.addEntry = function(){
+
+    $scope.entries.push($scope.newEntry);
+    $scope.newEntry = {}
+
+  }
 };

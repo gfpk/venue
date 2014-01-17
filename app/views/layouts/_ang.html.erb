@@ -1,12 +1,17 @@
-<form>
-  <input type="text" ng-model="newEntry.name"></input>
-</form> 
+<div ng-controller="appControll">
 
-<p>{{newEntry.name}}</p>
+<form ng-submit="addEntry()">
+  <input type="text" ng-model="newEntry.name">
+  <input type="submit" value="Add">
+</form>
+
+
+
+
 
 	
 
 
-<div ng-controller="appControll">
+
 	<p ng-repeat="entry in entries">{{entry.name}}</p>
 </div>
