@@ -11,12 +11,14 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require angular
+//= require angular-resource
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.datepicker
 //= require_tree .
 
 function jqRestore(){
+
 	
 	$('.flexslider').flexslider();
 	$('.seat').popover({html:true});
@@ -134,6 +136,7 @@ function jqRestore(){
 
 
 jqRestore();
+
 
 
 

@@ -580,3 +580,28 @@ padding: 0;}
     margin: 0;
     padding: 8px 14px;
 }
+.highlighto
+{
+    color:#369;}
+input.ng-pristine + ul#strength {
+    display:none;
+}
+ul#strength {
+    margin: 0;
+    padding: 0;
+}
+.point:last {
+    margin:0 !important;
+}
+.point {
+    background:#DDD;
+    border-radius:2px;
+    display:inline-block;
+    height:5px;
+    margin-right:1px;
+    width:265px;
+}
+#footer {
+    position:fixed;
+    bottom:5px;
+}

@@ -30,7 +30,8 @@ class ShowtimesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @showtime.tickets }
+      format.json { render   json: @showtime.tickets.to_json(:methods => [:available]) }
+
     end
   end
 

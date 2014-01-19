@@ -62,7 +62,7 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         Notifier.ticket_purchased(@order).deliver
-        format.html { redirect_to(showitems_url, :notice => 'Thank you for your order.' ) }
+        format.html { redirect_to(showitems_url, :notice => 'Thank you for your order. Confirmation email has been sent to your email.' ) }
         format.xml { render :xml => @order, :status => :created,:location => @order }
 
       else
